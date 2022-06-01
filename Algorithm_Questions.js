@@ -27,7 +27,7 @@ console.log(answer());
 // write a program to return an array secon smallers value and second largest value..   arr2=[2,5,7,8,9] answer =[5,8]
 
 // given array
-let arr2 = [2, 5, 10, 25, 7, 8, 9];
+let arr2 = [2, 5, 7, 8, 9];
 const answer2 = () => {
   // create an empty new array to store new values
   let newarr = [];
