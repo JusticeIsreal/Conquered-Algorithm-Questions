@@ -131,7 +131,7 @@ function removepuntuation(str) {
 console.log(removepuntuation(letter));
 console.log(removepuntuation("love ?!,good"));
 
-// Question 1
+// Question 4
 //     The Morse code encodes every character as a sequence of "dots" and "dashes".
 
 //     For example, the letter A is coded as ·−, letter Q is coded as −−·−, and digit 1 is coded as ·−−−.
@@ -230,4 +230,26 @@ const decodeMorseValue = (morseCode) => {
   return readableString;
 };
 
-console.log(decodeMorse("...---..."));
+// console.log(decodeMorse("...---..."));
+
+// QUESTION 5
+// write a program that seperates the vowels fro consonant in a given sting
+const sepVC = (word) => {
+  let allVowels = "a,e,i,o,u,A,E,I,O,U";
+  // set a variable to store new values
+  var allVowel = allVowels.split("");
+
+  let vowels = "";
+  let consonant = "";
+  for (let i = 0; i < word.length; i++) {
+    let elem = word[i];
+    if (allVowel.includes(elem)) {
+      vowels += elem;
+    } else if (!allVowel.includes(elem)) {
+      consonant += elem;
+    }
+  }
+  return {vowel:vowels , consonant: consonant};
+};
+
+console.log(sepVC("jlooppaeiugxsfsncjhfijhvmvn akllkj"));
