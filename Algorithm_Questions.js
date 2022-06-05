@@ -78,3 +78,57 @@ function sumonlynumber() {
   return sum;
 }
 console.log(sumonlynumber());
+
+// Wrote a javaScript function to Seperate smaller case from upper case in the string below
+//a string is a sequnce of characater. a, b c => abc
+
+// given string
+let message = "This is Port Harcourt";
+//length;
+function onlyLowest(arr) {
+  // set variable for empty string to stare answers
+  let result = "";
+  let upper = "";
+  // loop through the string
+  for (let i = 0; i < arr.length; i++) {
+    // set a condition for the seperate the letters using ther charCodeAt values
+    if (arr.charCodeAt(i) >= 97 && arr.charCodeAt(i) <= 122) {
+      // all small letters accoding to the charCodeAt vlaue is stored in result
+      result += arr.charAt(i);
+    } else {
+      // not small letters is stored in upper value
+      upper += arr.charAt(i);
+    }
+  }
+  return { lower: result, uppercase: upper };
+}
+console.log(onlyLowest(message));
+
+// wrote a javaScript function to remove the punctuations from the alphabets
+//remove puntuation from the string
+// given string
+let letter = "This is, what i: love? most!";
+function removepuntuation(str) {
+  // set variable to store answer
+  let sen = "";
+  // loop through the string values
+  for (let i = 0; i < str.length; i++) {
+    // set conditions to seperate puntuation fron string using their charCodeAt values
+    if (
+      str.charCodeAt(i) === 46 ||
+      str.charCodeAt(i) === 63 ||
+      str.charCodeAt(i) === 44 ||
+      str.charCodeAt(i) === 58 ||
+      str.charCodeAt(i) === 59 ||
+      str.charCodeAt(i) === 33 ||
+      str.charCodeAt(i) === 34
+    ) {
+      continue;
+    } else {
+      sen += str.charAt(i);
+    }
+  }
+  return sen;
+}
+console.log(removepuntuation(letter));
+console.log(removepuntuation("love ?!,good"));
