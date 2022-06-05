@@ -2,9 +2,8 @@
 // write a program to add only positive integers in an array and return the sum.
 
 // given array
-let arr1 = [1, 5, -6, 20, -5, 10, -8];
 
-const answer = () => {
+const answer = (arr1) => {
   // set a pivot for calculation
   let sum_of_integer = 0;
   // loop through array
@@ -20,15 +19,15 @@ const answer = () => {
 
   return sum_of_integer;
 };
-console.log(answer());
+console.log(answer([1, 5, -6, 20, -5, 10, -8]));
 // END OF SOLUTION
 
 // QUESTION 2
 // write a program to return an array secon smallers value and second largest value..   arr2=[2,5,7,8,9] answer =[5,8]
 
 // given array
-let arr2 = [2, 5, 7, 8, 9];
-const answer2 = () => {
+
+const answer2 = (arr2) => {
   // create an empty new array to store new values
   let newarr = [];
   // set variable for max and min element in arroy
@@ -54,15 +53,14 @@ const answer2 = () => {
   // console.log(newarr2);
   return newarr2;
 };
-console.log(answer2());
+console.log(answer2([2, 5, 7, 8, 9]));
 
 // END OF SOLUTION
 
 // QUESSION 2
 //  write aprogram the remove negative or non integer from and arry and return the sum of only positive integer
 
-let arr = [3, "6", 9, "5", 2];
-function sumonlynumber() {
+function sumonlynumber(arr) {
   // set a default value
   let sum = 0;
   // loop through the array
@@ -77,7 +75,7 @@ function sumonlynumber() {
   }
   return sum;
 }
-console.log(sumonlynumber());
+console.log(sumonlynumber([3, "6", 9, "5", 2]));
 
 // Wrote a javaScript function to Seperate smaller case from upper case in the string below
 //a string is a sequnce of characater. a, b c => abc
