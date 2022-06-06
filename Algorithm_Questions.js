@@ -47,7 +47,7 @@ const answer2 = (arr2) => {
   let min2 = Math.min(...newarr);
   let max2 = Math.max(...newarr);
   // create anothe array to carry max and min value for new array
-  let newarr2 = [min2, max2];
+  let newarr2 = newarr.push(min2, max2);
 
   // log  value
   // console.log(newarr2);
@@ -224,13 +224,13 @@ const decodeMorseValue = (morseCode) => {
     // set condition to check object
     if (MORSE_CODE.hasOwnProperty(elem)) {
       // add found value to empty string
-      readableString += MORSE_CODE[elem];
+      readableStringValue += MORSE_CODE[elem];
     }
   }
-  return readableString;
+  return readableStringValue;
 };
 
-// console.log(decodeMorse("...---..."));
+console.log(decodeMorseValue("...---..."));
 
 // QUESTION 5
 // write a program that seperates the vowels fro consonant in a given sting
@@ -274,7 +274,7 @@ console.log(sepVC("jlooppaeiugxsfsncjhfijhvmvnakllkj"));
 // ANSWER
 // Idrew a function
 const atmMachine = (amountRequested) => {
-  if (amountRequested > 10000) {
+  if (amountRequested > 20000) {
     console.log("you can only withdraw $10,000 at a time");
     return false;
   } else {
@@ -299,16 +299,62 @@ const atmMachine = (amountRequested) => {
         cashAvaliable[2]
     );
     // inputed values to the initials empty array
-    moneyDenominations = [
-      {
-        $100: denomination1,
-        $20: denomination2,
-        $9: denomination3,
-        $1: denomination4,
-      },
-    ];
+    // moneyDenominations  = [
+    //   {
+    //     $100: denomination1,
+    //     $20: denomination2,
+    //     $9: denomination3,
+    //     $1: denomination4,
+    //   },
+    // ];
+    moneyDenominations.push({
+      $100: denomination1,
+      $20: denomination2,
+      $9: denomination3,
+      $1: denomination4,
+    });
     return moneyDenominations;
   }
 };
-console.log(atmMachine([5862]));
+console.log(atmMachine([10409]));
 atmMachine();
+
+// altlernative solution
+const withdraw = (amount, oldArray = []) => {
+  box = [...oldArray];
+  let num;
+  if (Math.floor(amount / 100) > 0) {
+    let remainder = Math.floor(amount / 100);
+    box.push(remainder);
+    num = amount - remainder * 100;
+    withdraw(num, box);
+  } else if (Math.floor(amount / 20) > 0) {
+    let remainder = Math.floor(amount / 20);
+    box.push(remainder);
+    num = amount - remainder * 20;
+    withdraw(num, box);
+  } else if (Math.floor(amount / 9) > 0) {
+    let remainder = Math.floor(amount / 9);
+    box.push(remainder);
+    num = amount - remainder * 9;
+    withdraw(num, box);
+  } else if (amount < 9) {
+    box.push(amount);
+  }
+  return box;
+};
+console.log(withdraw(10409));
+
+const longestWord = (sentences) => {
+  let sentence = sentences.split(" ");
+  let word = "";
+  for (let i = 0; i < sentence.length; i++) {
+    let elem = sentence[i];
+    if (elem.length > word.length) {
+      word = elem;
+    }
+  }
+  return word;
+};
+
+console.log(longestWord("hello guys this is justice isreal code"));
