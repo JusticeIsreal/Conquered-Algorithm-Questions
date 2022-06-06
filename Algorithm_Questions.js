@@ -249,7 +249,60 @@ const sepVC = (word) => {
       consonant += elem;
     }
   }
-  return {vowel:vowels , consonant: consonant};
+  return { vowel: vowels, consonant: consonant };
 };
 
-console.log(sepVC("jlooppaeiugxsfsncjhfijhvmvn akllkj"));
+console.log(sepVC("jlooppaeiugxsfsncjhfijhvmvnakllkj"));
+
+// Questionn 5
+//  An atm has 100, 20, 9, and 1 Naira bills (NGN) available to be dispensed.
+//     Given an amount between 0 and 10,000 Naira (inclusive) and asaiming that the ATM wants to use as few bills as possible,
+//     determine  the minimal number of 100, 20, 9, and 1 dollar bills the ATM needs to dispense (in that order).
+//     Here's the specification for the withdraw method you'll complete.
+
+//  Withdraw  (amount)
+
+// Parameters
+// Amount: Number - amount of money to withdraw. Assume that the amount is always divisible into 100, 20, 9, and 1 bills.
+// Return value
+// Array  <Number> An array of 4 integers representing the number of 100, 20, 9, and 1 Naira bills needed to complete the withdraw  (in that order). Constraints: 0《amount《10,000.
+// Examples
+// Amount         return value
+// 1049              [10,2,1,0]
+// 130                [1,1,1,1]
+
+// ANSWER
+// Idrew a function
+const atmMachine = (amountRequested) => {
+  // set array of cash avalible in the machine
+  let cashAvaliable = [100, 20, 9, 1];
+  // set variable for an empty array to store output denominations
+  let moneyDenominations = [];
+  // calculated for first denomination using the avaliable denomination of 100 dollar bill in the machine
+  let denomination1 = Math.floor(amountRequested / cashAvaliable[0]);
+  // calculated for first denomination using the avaliable denomination of 20 dollar bill in the machine
+  let denomination2 = Math.floor(
+    (amountRequested % cashAvaliable[0]) / cashAvaliable[1]
+  );
+  // calculated for first denomination using the avaliable denomination of 9 dollar bill in the machine
+  let denomination3 = Math.floor(
+    ((amountRequested % cashAvaliable[0]) % cashAvaliable[1]) / cashAvaliable[2]
+  );
+  // calculated for first denomination using the avaliable denomination of 1 dollar bill in the machine
+  let denomination4 = Math.floor(
+    ((amountRequested % cashAvaliable[0]) % cashAvaliable[1]) % cashAvaliable[2]
+  );
+  // inputed values to the initials empty array
+  moneyDenominations = [
+    {
+      N100: denomination1,
+      N20: denomination2,
+      N9: denomination3,
+      N1: denomination4,
+    },
+  ];
+
+  return moneyDenominations;
+};
+console.log(atmMachine([9537]));
+atmMachine();
