@@ -274,35 +274,41 @@ console.log(sepVC("jlooppaeiugxsfsncjhfijhvmvnakllkj"));
 // ANSWER
 // Idrew a function
 const atmMachine = (amountRequested) => {
-  // set array of cash avalible in the machine
-  let cashAvaliable = [100, 20, 9, 1];
-  // set variable for an empty array to store output denominations
-  let moneyDenominations = [];
-  // calculated for first denomination using the avaliable denomination of 100 dollar bill in the machine
-  let denomination1 = Math.floor(amountRequested / cashAvaliable[0]);
-  // calculated for first denomination using the avaliable denomination of 20 dollar bill in the machine
-  let denomination2 = Math.floor(
-    (amountRequested % cashAvaliable[0]) / cashAvaliable[1]
-  );
-  // calculated for first denomination using the avaliable denomination of 9 dollar bill in the machine
-  let denomination3 = Math.floor(
-    ((amountRequested % cashAvaliable[0]) % cashAvaliable[1]) / cashAvaliable[2]
-  );
-  // calculated for first denomination using the avaliable denomination of 1 dollar bill in the machine
-  let denomination4 = Math.floor(
-    ((amountRequested % cashAvaliable[0]) % cashAvaliable[1]) % cashAvaliable[2]
-  );
-  // inputed values to the initials empty array
-  moneyDenominations = [
-    {
-      N100: denomination1,
-      N20: denomination2,
-      N9: denomination3,
-      N1: denomination4,
-    },
-  ];
-
-  return moneyDenominations;
+  if (amountRequested > 10000) {
+    console.log("you can only withdraw $10,000 at a time");
+    return false;
+  } else {
+    // set array of cash avalible in the machine
+    let cashAvaliable = [100, 20, 9, 1];
+    // set variable for an empty array to store output denominations
+    let moneyDenominations = [];
+    // calculated for first denomination using the avaliable denomination of 100 dollar bill in the machine
+    let denomination1 = Math.floor(amountRequested / cashAvaliable[0]);
+    // calculated for first denomination using the avaliable denomination of 20 dollar bill in the machine
+    let denomination2 = Math.floor(
+      (amountRequested % cashAvaliable[0]) / cashAvaliable[1]
+    );
+    // calculated for first denomination using the avaliable denomination of 9 dollar bill in the machine
+    let denomination3 = Math.floor(
+      ((amountRequested % cashAvaliable[0]) % cashAvaliable[1]) /
+        cashAvaliable[2]
+    );
+    // calculated for first denomination using the avaliable denomination of 1 dollar bill in the machine
+    let denomination4 = Math.floor(
+      ((amountRequested % cashAvaliable[0]) % cashAvaliable[1]) %
+        cashAvaliable[2]
+    );
+    // inputed values to the initials empty array
+    moneyDenominations = [
+      {
+        $100: denomination1,
+        $20: denomination2,
+        $9: denomination3,
+        $1: denomination4,
+      },
+    ];
+    return moneyDenominations;
+  }
 };
-console.log(atmMachine([9537]));
+console.log(atmMachine([5862]));
 atmMachine();
