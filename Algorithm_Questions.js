@@ -345,6 +345,9 @@ const withdraw = (amount, oldArray = []) => {
 };
 console.log(withdraw(10409));
 
+
+// QUESTION 6
+// write a program that returns  the longest word from the given string
 const longestWord = (sentences) => {
   let sentence = sentences.split(" ");
   let word = "";
