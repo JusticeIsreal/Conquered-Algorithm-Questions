@@ -345,7 +345,6 @@ const withdraw = (amount, oldArray = []) => {
 };
 console.log(withdraw(10409));
 
-
 // QUESTION 6
 // write a program that returns  the longest word from the given string
 const longestWord = (sentences) => {
@@ -361,3 +360,31 @@ const longestWord = (sentences) => {
 };
 
 console.log(longestWord("hello guys this is justice isreal code"));
+
+// QUESTION 7
+// We have an oject of customers for our food delivery
+// app with th information about their past order with oder value.
+// write a javascript program to give a "PREMIUM MEMBERSHIP" to the
+// customer is the customer has made at least 5 order of the minimum value of 20.
+// the customers and their past order history is given below
+
+const obj = {
+  Ben10: [22, 30, 11, 17, 15, 52, 27, 12, 50],
+  Sameer: [5, 17, 30, 33, 40, 22, 26, 10, 11, 45],
+  Tony: [5, 27, 30, 33, 40, 22, 26, 10, 21, 45],
+  Linda: [15, 17, 30, 3, 40, 22, 6, 10, 11, 45],
+  Zeesham: [22, 30, 11, 5, 17, 30, 6, 57],
+};
+
+const qualifiedCustomer = (customers) => {
+  let rewardBox = {};
+  let message = "";
+  for (let customer in customers) {
+    rewardBox[customer] = obj[customer].filter((el) => el >= 20);
+    if (rewardBox[customer].length >= 5) {
+      message += `Congratulations ${customer} you just earned PREMIUM MEMBERSHIP \n`;
+    }
+  }
+  return message;
+};
+console.log(qualifiedCustomer(obj));
