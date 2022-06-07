@@ -360,6 +360,7 @@ const longestWord = (sentences) => {
 };
 
 console.log(longestWord("hello guys this is justice isreal code"));
+console.log(longestWord("hello this is another testing for verification"));
 
 // QUESTION 7
 // We have an oject of customers for our food delivery
