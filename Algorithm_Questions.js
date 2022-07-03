@@ -58,7 +58,7 @@ console.log(answer2([2, 5, 7, 8, 9]));
 // END OF SOLUTION
 
 // QUESSION 2
-//  write aprogram the remove negative or non integer from and arry and return the sum of only positive integer
+//  write a program that remove negative or non integer from and arry and return the sum of only positive integer
 
 function sumonlynumber(arr) {
   // set a default value
@@ -102,7 +102,7 @@ function onlyLowest(arr) {
 }
 console.log(onlyLowest(message));
 
-// wrote a javaScript function to remove the punctuations from the alphabets
+// write a javaScript function to remove the punctuations from the alphabets
 //remove puntuation from the string
 // given string
 let letter = "This is, what i: love? most!";
@@ -112,6 +112,7 @@ function removepuntuation(str) {
   // loop through the string values
   for (let i = 0; i < str.length; i++) {
     // set conditions to seperate puntuation fron string using their charCodeAt values
+
     if (
       str.charCodeAt(i) === 46 ||
       str.charCodeAt(i) === 63 ||
@@ -128,6 +129,7 @@ function removepuntuation(str) {
   }
   return sen;
 }
+
 console.log(removepuntuation(letter));
 console.log(removepuntuation("love ?!,good"));
 
@@ -216,6 +218,7 @@ const MORSE_CODE = {
 const decodeMorseValue = (morseCode) => {
   // to convert string to array
   const splitMorseCode = morseCode.split(" ");
+
   // a variable to hold each character
   let readableStringValue = "";
   // loop through new array
@@ -231,28 +234,38 @@ const decodeMorseValue = (morseCode) => {
 };
 
 console.log(decodeMorseValue("...---..."));
+console.log(decodeMorseValue("--"));
 
 // QUESTION 5
-// write a program that seperates the vowels fro consonant in a given sting
+// write a program that seperates the vowels from consonant and numbers in a given sting
 const sepVC = (word) => {
-  let allVowels = "a,e,i,o,u,A,E,I,O,U";
+  let allVowel = "a, e, i, o, u, A, E, I, O, U";
+  let number = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9";
+  let allVowels = allVowel.split("");
+  let numbers = number.split("");
   // set a variable to store new values
-  var allVowel = allVowels.split("");
 
   let vowels = "";
   let consonant = "";
+  let num = "";
   for (let i = 0; i < word.length; i++) {
     let elem = word[i];
-    if (allVowel.includes(elem)) {
+    if (allVowels.includes(elem)) {
       vowels += elem;
-    } else if (!allVowel.includes(elem)) {
+    } else if (numbers.includes(elem)) {
+      num += elem;
+    } else if (!allVowels.includes(elem)) {
       consonant += elem;
     }
   }
-  return { vowel: vowels, consonant: consonant };
+  return { vowel: vowels, consonant: consonant, number: num };
 };
 
-console.log(sepVC("jlooppaeiugxsfsncjhfijhvmvnakllkj"));
+console.log(
+  sepVC(
+    "jlooppa62467244724eiugxdhahah1627zdgasgdgaegdgdsfs7367824671ncjhfijhvmt774vnakllkj"
+  )
+);
 
 // Questionn 5
 //  An atm has 100, 20, 9, and 1 Naira bills (NGN) available to be dispensed.
@@ -382,6 +395,7 @@ const qualifiedCustomer = (customers) => {
   let message = "";
   for (let customer in customers) {
     rewardBox[customer] = obj[customer].filter((el) => el >= 20);
+
     if (rewardBox[customer].length >= 5) {
       message += `Congratulations ${customer} you just earned PREMIUM MEMBERSHIP \n`;
     }
@@ -403,7 +417,6 @@ console.log(qualifiedCustomer(obj));
 
 // switchChar(inputChar, actualChar, changeChar) => dgwq
 
-
 // the result for this is => "dgwq"
 
 // you are to write a function that takes these values as arguments and return the result only if:
@@ -420,13 +433,11 @@ console.log(qualifiedCustomer(obj));
 // 3) the length of inputChar is longer than the length of actualChar returns => -1
 // 4) the characters in inputChar are not contained in actualChar -1
 
-
 // *NOTE:*
 // actualChar is a set of none repeating characters of length (0 to N)
 // inputChar is a set of characters of length (0 to N-1)
 // changeChar is a set of characters of length (length of actualChar)
 // unmet conditions must return values
-
 
 // examples:
 // *switchChar('decagon', 'lmnbvcxzasdfghjktyrueiwoqp', 'zdewsaqxcfrtgvbhyujnmkilop') => "rmacgle*
