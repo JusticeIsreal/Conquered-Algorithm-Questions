@@ -492,3 +492,30 @@ switchChar("we", "wkeap", "mgren");
 
 const product = 8 * 10;
 console.log(product);
+
+// Change the 0 so that the quotient is equal to 2.
+// const quotient = 66 / 33;
+const quotient = 66 / 33;
+console.log(quotient);
+
+// Change the code to use the++ operator on myVar.
+// let myVar = 87;
+// myVar = myVar + 1;
+
+let myVar = 87;
+myVar++;
+console.log(myVar);
+
+// Change the code to use the++ operator on myVar.
+// let myVar = 87;
+// myVar = myVar - 1;
+
+let mVar = 87;
+myVar--;
+console.log(myVar);
+
+// Create a variable myDecimal and give it a decimal value with a fractional part (e.g. 5.7).
+const myDecimal = 5.7;
+
+// Change the 0.0 so that product will equal 5.0.
+const product = 2.0 * 2.5;
