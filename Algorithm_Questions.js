@@ -536,7 +536,7 @@ b += 9;
 c += 7;
 
 // Convert the assignments for a, b, and c to use the -= operator.
-let  d= 11;
+let d = 11;
 let g = 9;
 let r = 3;
 
@@ -549,18 +549,40 @@ let q = 5;
 let s = 12;
 let p = 4.6;
 
-// Only change code below this line
 q *= 5;
 s *= 3;
 p *= 10;
 
 // Convert the assignments for a, b, and c to use the /= operator.
-
 let e = 48;
 let t = 108;
 let w = 33;
 
-
 e /= 12;
 t /= 4;
 w /= 11;
+
+// Use backslashes to assign a string to the myStr variable so that if you were to print it to the console, you would see:
+
+// I am a "double quoted" string inside "double quotes".
+const Str = 'I am a "double quoted" string inside "double quotes".';
+console.log(Str);
+
+// Change the provided string to a string with single quotes at the beginning and end and no escape characters.
+
+// Right now, the <a> tag in the string uses double quotes everywhere. You will need to change the outer quotes to single quotes so you can remove the escape characters.
+
+const St = '<a href="http://www.example.com" target="_blank">Link</a>';
+console.log(St);
+
+// Assign the following three lines of text into the single variable myStr using escape sequences.
+
+// FirstLine
+//     \SecondLine
+// ThirdLine
+// You will need to use escape sequences to insert special characters correctly. You will also need to follow the spacing as it looks above, with no spaces between escape sequences or words.
+
+// Note: The indentation for SecondLine is achieved with the tab escape character, not spaces.
+
+const my = "FirstLine\n\t\\SecondLine\nThirdLine";
+console.log(my);
