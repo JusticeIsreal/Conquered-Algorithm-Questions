@@ -484,3 +484,11 @@ function dup(str = "") {
 // console.log(switchChar("decagon", "lmnbvcxzasdfghjktyrueiwoqp", "zdewsaqxcfrtgvbhyujnmkilop"));
 // console.log(switchChar("we", "wkeap", "mgren"));
 switchChar("we", "wkeap", "mgren");
+
+// QUESTION 10 .
+
+// Change the 0 so that product will equal 80.
+// const product = 8 * 0;
+
+const product = 8 * 10;
+console.log(product);
