@@ -518,4 +518,49 @@ console.log(myVar);
 const myDecimal = 5.7;
 
 // Change the 0.0 so that product will equal 5.0.
-const product = 2.0 * 2.5;
+const produt = 2.0 * 2.5;
+
+// Change the 0.0 so that quotient will equal to 2.2.
+const quotiet = 4.4 / 2.0;
+
+// Set remainder equal to the remainder of 11 divided by 3 using the remainder (%) operator.
+const remainder = 11 % 3;
+
+// Convert the assignments for a, b, and c to use the += operator.
+let a = 3;
+let b = 17;
+let c = 12;
+
+a += 12;
+b += 9;
+c += 7;
+
+// Convert the assignments for a, b, and c to use the -= operator.
+let  d= 11;
+let g = 9;
+let r = 3;
+
+d -= 6;
+g -= 15;
+r -= 1;
+
+// Convert the assignments for a, b, and c to use the *= operator.
+let q = 5;
+let s = 12;
+let p = 4.6;
+
+// Only change code below this line
+q *= 5;
+s *= 3;
+p *= 10;
+
+// Convert the assignments for a, b, and c to use the /= operator.
+
+let e = 48;
+let t = 108;
+let w = 33;
+
+
+e /= 12;
+t /= 4;
+w /= 11;
