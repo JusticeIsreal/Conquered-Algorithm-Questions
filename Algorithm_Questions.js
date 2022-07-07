@@ -487,102 +487,112 @@ switchChar("we", "wkeap", "mgren");
 
 // QUESTION 10 .
 
-// Change the 0 so that product will equal 80.
-// const product = 8 * 0;
+// We've defined a function countOnline which accepts one argument (a users object). Use a for...in statement within this function to loop through the users object passed into the function and return the number of users whose online property is set to true. An example of a users object which could be passed to countOnline is shown below. Each user will have an online property with either a true or false value.
 
-const product = 8 * 10;
-console.log(product);
+// {
+//   Alan: {
+//     online: false
+//   },
+//   Jeff: {
+//     online: true
+//   },
+//   Sarah: {
+//     online: false
+//   }
+// }
 
-// Change the 0 so that the quotient is equal to 2.
-// const quotient = 66 / 33;
-const quotient = 66 / 33;
-console.log(quotient);
+var users = {
+  Alan: {
+    online: false,
+  },
+  Jeff: {
+    online: true,
+  },
+  Sarah: {
+    online: true,
+  },
+};
 
-// Change the code to use the++ operator on myVar.
-// let myVar = 87;
-// myVar = myVar + 1;
+function countOnline(usersObj) {
+  let total = 0;
+  for (let user in usersObj) {
+    if (usersObj[user].online === true) {
+      console.log(usersObj[user].online);
+      //code
+      total++;
+    }
+  }
+  return total;
+}
 
-let myVar = 87;
-myVar++;
-console.log(myVar);
+console.log(countOnline(users));
 
-// Change the code to use the++ operator on myVar.
-// let myVar = 87;
-// myVar = myVar - 1;
+// QUESTION 11
+// Finish writing the getArrayOfUsers function so that it returns an array containing all the properties in the object it receives as an argument.
 
-let mVar = 87;
-myVar--;
-console.log(myVar);
+let users = {
+  Alan: {
+    age: 27,
+    online: false,
+  },
+  Jeff: {
+    age: 32,
+    online: true,
+  },
+  Sarah: {
+    age: 48,
+    online: false,
+  },
+  Ryan: {
+    age: 19,
+    online: true,
+  },
+};
 
-// Create a variable myDecimal and give it a decimal value with a fractional part (e.g. 5.7).
-const myDecimal = 5.7;
+function getArrayOfUsers(obj) {
+  let total = Object.keys(obj);
 
-// Change the 0.0 so that product will equal 5.0.
-const produt = 2.0 * 2.5;
+  return total;
+}
 
-// Change the 0.0 so that quotient will equal to 2.2.
-const quotiet = 4.4 / 2.0;
+console.log(getArrayOfUsers(users));
 
-// Set remainder equal to the remainder of 11 divided by 3 using the remainder (%) operator.
-const remainder = 11 % 3;
+// QUESTION 12
+// Take a look at the object we've provided in the code editor. The user object contains three keys. The data key contains five keys, one of which contains an array of friends. From this, you can see how flexible objects are as data structures. We've started writing a function addFriend. Finish writing it so that it takes a user object and adds the name of the friend argument to the array stored in user.data.friends and returns that array.
 
-// Convert the assignments for a, b, and c to use the += operator.
-let a = 3;
-let b = 17;
-let c = 12;
+let user = {
+  name: "Kenneth",
+  age: 28,
+  data: {
+    username: "kennethCodesAllDay",
+    joinDate: "March 26, 2016",
+    organization: "freeCodeCamp",
+    friends: ["Sam", "Kira", "Tomo"],
+    location: {
+      city: "San Francisco",
+      state: "CA",
+      country: "USA",
+    },
+  },
+};
 
-a += 12;
-b += 9;
-c += 7;
+function addFriend(userObj, friend) {
+  console.log(user.data.friends);
+  let newArr = userObj.data.friends;
+  newArr.push(friend);
+  return newArr;
+}
 
-// Convert the assignments for a, b, and c to use the -= operator.
-let d = 11;
-let g = 9;
-let r = 3;
+console.log(addFriend(user, "Pete"));
 
-d -= 6;
-g -= 15;
-r -= 1;
+// QUESTION 13
+// The formula to convert from Celsius to Fahrenheit is the temperature in Celsius times 9/5, plus 32.
 
-// Convert the assignments for a, b, and c to use the *= operator.
-let q = 5;
-let s = 12;
-let p = 4.6;
+// You are given a variable celsius representing a temperature in Celsius. Use the variable fahrenheit already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the formula mentioned above to help convert the Celsius temperature to Fahrenheit
 
-q *= 5;
-s *= 3;
-p *= 10;
-
-// Convert the assignments for a, b, and c to use the /= operator.
-let e = 48;
-let t = 108;
-let w = 33;
-
-e /= 12;
-t /= 4;
-w /= 11;
-
-// Use backslashes to assign a string to the myStr variable so that if you were to print it to the console, you would see:
-
-// I am a "double quoted" string inside "double quotes".
-const Str = 'I am a "double quoted" string inside "double quotes".';
-console.log(Str);
-
-// Change the provided string to a string with single quotes at the beginning and end and no escape characters.
-
-// Right now, the <a> tag in the string uses double quotes everywhere. You will need to change the outer quotes to single quotes so you can remove the escape characters.
-
-const St = '<a href="http://www.example.com" target="_blank">Link</a>';
-console.log(St);
-
-// Assign the following three lines of text into the single variable myStr using escape sequences.
-
-// FirstLine
-//     \SecondLine
-// ThirdLine
-// You will need to use escape sequences to insert special characters correctly. You will also need to follow the spacing as it looks above, with no spaces between escape sequences or words.
-
-// Note: The indentation for SecondLine is achieved with the tab escape character, not spaces.
-
-const my = "FirstLine\n\t\\SecondLine\nThirdLine";
-console.log(my);
+function convertToF(celsius) {
+  let fahrenheit;
+  fahrenheit = (celsius * 9) / 5 + 32;
+  return fahrenheit;
+}
+console.log(convertToF(30));
