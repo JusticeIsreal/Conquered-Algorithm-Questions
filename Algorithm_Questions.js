@@ -524,7 +524,6 @@ function countOnline(usersObj) {
   }
   return total;
 }
-
 console.log(countOnline(users));
 
 // QUESTION 11
@@ -548,13 +547,10 @@ let users = {
     online: true,
   },
 };
-
 function getArrayOfUsers(obj) {
   let total = Object.keys(obj);
-
   return total;
 }
-
 console.log(getArrayOfUsers(users));
 
 // QUESTION 12
@@ -587,7 +583,6 @@ console.log(addFriend(user, "Pete"));
 
 // QUESTION 13
 // The formula to convert from Celsius to Fahrenheit is the temperature in Celsius times 9/5, plus 32.
-
 // You are given a variable celsius representing a temperature in Celsius. Use the variable fahrenheit already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the formula mentioned above to help convert the Celsius temperature to Fahrenheit
 
 function convertToF(celsius) {
@@ -600,7 +595,6 @@ console.log(convertToF(30));
 // QUESTION 14
 
 // Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
-
 // Remember, you can iterate through an array with a simple for loop, and access each member with array syntax arr[i].
 
 function largestOfFour(arr) {
@@ -632,9 +626,6 @@ console.log(
 // Check if a string (first argument, str) ends with the given target string (second argument, target).
 
 function confirmEnding(str, target) {
-  // "Never give up and good luck will find you."
-  // -- Falcor
-
   return str.slice(str.length - target.length) === target;
 }
 console.log(confirmEnding("He has to give me a new name", "name"));
@@ -642,7 +633,6 @@ console.log(confirmEnding("He has to give me a new name", "name"));
 // QUESTION 16
 
 // Repeat a given string str (first argument) for num times (second argument). Return an empty string if num is not a positive number. For the purpose of this challenge, do not use the built-in .repeat() method.
-
 function repeatStringNumTimes(str, num) {
   let accumulatedStr = "";
 
@@ -656,7 +646,6 @@ console.log(repeatStringNumTimes("abc", 3));
 // QUESTION 17
 
 // Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending
-
 function truncateString(str, num) {
   let newstr = str.split("").length;
   let newstr1 = str.split("");
@@ -793,9 +782,7 @@ function getIndexToIns(arr, num) {
 console.log(getIndexToIns([40, 80, 60], 50));
 console.log(getIndexToIns([2, 20, 10], 19));
 
-
 // QUESTION 22
-
 // Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
 // For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
 // The arguments ["hello", "hey"] should return false because the string hello does not contain a y.
@@ -822,9 +809,7 @@ function mutatio(arr) {
 }
 console.log(mutatio(["Mary", "Army"]));
 
-
 // QUESTION 23
-
 // Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
 
 function chunkArrayInGroups(arr, size) {
@@ -834,5 +819,94 @@ function chunkArrayInGroups(arr, size) {
   }
   return newArr;
 }
-console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2))
-;
+console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+
+// QUESTION 24
+
+// write a function called same, which accepts two arrays. the function should return true if every value in the array has its corrsponding value squared in the second array. the frequency of values must be the same
+
+const same = (arr1, arr2) => {
+  // write a condition that checks for length to proceed
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  // create new arrays
+  let newArr1 = {};
+  let newArr2 = {};
+  // create loop for arr1
+  for (let val in arr1) {
+    // store values in new array1
+    newArr1[val] = (newArr1[val] || 0) + 1;
+  }
+  for (let val in arr2) {
+    // store values in new array2
+    newArr2[val] = (newArr2[val] || 0) + 1;
+  }
+  for (let key of newArr1) {
+    if (!(key ** 2 in newArr2)) {
+      return false;
+    }
+    if (newArr2[key ** 2] !== newArr1[key]) {
+      return false;
+    }
+  }
+  return true;
+  // loop array1
+  // set condition for arra2
+};
+same([1, 2, 5, 8], [2, 5, 8, 6]);
+
+// QUESTION 25
+
+// given two strings , write a functionto determine if the second string is  an anagram of the first string. an anagram is a set of word that contain the same set of letters
+
+// METHOD 1
+const anagram = (str1, str2) => {
+  // set condition for length of both str
+  if (str1.lenght !== str2.length) {
+    return false;
+  }
+  // create empty obj to hold data
+  let holder = {};
+  // loop str1 and stor in obj
+  for (let i = 0; i < str1.length; i++) {
+    let elem = str1[i];
+    if (holder[elem]) {
+      holder[elem] += 1;
+    } else {
+      holder[elem] = 1;
+    }
+  }
+  for (let i = 0; i < str2.length; i++) {
+    let elem = str2[i];
+    if (!holder[elem]) {
+      return false;
+    } else {
+      holder[elem] -= 1;
+    }
+  }
+  return true;
+  // loop str2 and compare with str
+};
+anagram("moon", "noon");
+
+// METHOD 2
+
+const samewords = (str1, str2) => {
+  // set conditon for length
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  // convert str to lowrcase array and sort and back to string
+  str1 = str1.toLowerCase().replace(/[\W_]+/g, "");
+  str2 = str2.toLowerCase().replace(/[\W_]+/g, "");
+
+  let newStr1 = str1.split(" ").sort().join(" ");
+  let newStr2 = str2.split(" ").sort().join(" ");
+
+  // set conditon for final result
+  if (newStr1 === newStr2) {
+    return true;
+  }
+};
+samewords("teavh", "thkja");
