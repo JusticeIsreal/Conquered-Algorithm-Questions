@@ -57,8 +57,8 @@ console.log(answer2([2, 5, 7, 8, 9]));
 
 // END OF SOLUTION
 
-// QUESSION 2
-//  write a program that remove negative or non integer from and arry and return the sum of only positive integer
+// QUESSION 3
+//  write a program that remove negative or non integer from and array and return the sum of only positive integer
 
 function sumonlynumber(arr) {
   // set a default value
@@ -77,6 +77,7 @@ function sumonlynumber(arr) {
 }
 console.log(sumonlynumber([3, "6", 9, "5", 2]));
 
+// QUESSION 4
 // Wrote a javaScript function to Seperate smaller case from upper case in the string below
 //a string is a sequnce of characater. a, b c => abc
 
@@ -102,6 +103,7 @@ function onlyLowest(arr) {
 }
 console.log(onlyLowest(message));
 
+// QUESSION 5
 // write a javaScript function to remove the punctuations from the alphabets
 //remove puntuation from the string
 // given string
@@ -133,7 +135,7 @@ function removepuntuation(str) {
 console.log(removepuntuation(letter));
 console.log(removepuntuation("love ?!,good"));
 
-// Question 4
+// Question 6
 //     The Morse code encodes every character as a sequence of "dots" and "dashes".
 
 //     For example, the letter A is coded as ·−, letter Q is coded as −−·−, and digit 1 is coded as ·−−−.
@@ -236,7 +238,7 @@ const decodeMorseValue = (morseCode) => {
 console.log(decodeMorseValue("...---..."));
 console.log(decodeMorseValue("--"));
 
-// QUESTION 5
+// QUESTION 7
 // write a program that seperates the vowels from consonant and numbers in a given sting
 const sepVC = (word) => {
   let allVowel = "a, e, i, o, u, A, E, I, O, U";
@@ -252,7 +254,7 @@ const sepVC = (word) => {
     let elem = word[i];
     if (allVowels.includes(elem)) {
       vowels += elem;
-    } else if (numbers.includes(elem)) {
+    } else if (number.includes(elem)) {
       num += elem;
     } else if (!allVowels.includes(elem)) {
       consonant += elem;
@@ -267,7 +269,7 @@ console.log(
   )
 );
 
-// Questionn 5
+// Questionn 8
 //  An atm has 100, 20, 9, and 1 Naira bills (NGN) available to be dispensed.
 //     Given an amount between 0 and 10,000 Naira (inclusive) and asaiming that the ATM wants to use as few bills as possible,
 //     determine  the minimal number of 100, 20, 9, and 1 dollar bills the ATM needs to dispense (in that order).
@@ -311,15 +313,7 @@ const atmMachine = (amountRequested) => {
       ((amountRequested % cashAvaliable[0]) % cashAvaliable[1]) %
         cashAvaliable[2]
     );
-    // inputed values to the initials empty array
-    // moneyDenominations  = [
-    //   {
-    //     $100: denomination1,
-    //     $20: denomination2,
-    //     $9: denomination3,
-    //     $1: denomination4,
-    //   },
-    // ];
+
     moneyDenominations.push({
       $100: denomination1,
       $20: denomination2,
@@ -358,7 +352,7 @@ const withdraw = (amount, oldArray = []) => {
 };
 console.log(withdraw(10409));
 
-// QUESTION 6
+// QUESTION 9
 // write a program that returns  the longest word from the given string
 const longestWord = (sentences) => {
   let sentence = sentences.split(" ");
@@ -375,7 +369,7 @@ const longestWord = (sentences) => {
 console.log(longestWord("hello guys this is justice isreal code"));
 console.log(longestWord("hello this is another testing for verification"));
 
-// QUESTION 7
+// QUESTION 10
 // We have an oject of customers for our food delivery
 // app with th information about their past order with oder value.
 // write a javascript program to give a "PREMIUM MEMBERSHIP" to the
@@ -404,7 +398,7 @@ const qualifiedCustomer = (customers) => {
 };
 console.log(qualifiedCustomer(obj));
 
-//  QUESTION 9
+//  QUESTION 11
 
 //  *switchChar* is a function that helps children in swapping values to return a new word
 // a word is a set of alphabets that obviously must not be a dictionary word
@@ -485,7 +479,7 @@ function dup(str = "") {
 // console.log(switchChar("we", "wkeap", "mgren"));
 switchChar("we", "wkeap", "mgren");
 
-// QUESTION 10 .
+// QUESTION 12 .
 
 // We've defined a function countOnline which accepts one argument (a users object). Use a for...in statement within this function to loop through the users object passed into the function and return the number of users whose online property is set to true. An example of a users object which could be passed to countOnline is shown below. Each user will have an online property with either a true or false value.
 
@@ -526,7 +520,7 @@ function countOnline(usersObj) {
 }
 console.log(countOnline(users));
 
-// QUESTION 11
+// QUESTION 13
 // Finish writing the getArrayOfUsers function so that it returns an array containing all the properties in the object it receives as an argument.
 
 let users = {
@@ -553,7 +547,7 @@ function getArrayOfUsers(obj) {
 }
 console.log(getArrayOfUsers(users));
 
-// QUESTION 12
+// QUESTION 14
 // Take a look at the object we've provided in the code editor. The user object contains three keys. The data key contains five keys, one of which contains an array of friends. From this, you can see how flexible objects are as data structures. We've started writing a function addFriend. Finish writing it so that it takes a user object and adds the name of the friend argument to the array stored in user.data.friends and returns that array.
 
 let user = {
@@ -581,7 +575,7 @@ function addFriend(userObj, friend) {
 
 console.log(addFriend(user, "Pete"));
 
-// QUESTION 13
+// QUESTION 15
 // The formula to convert from Celsius to Fahrenheit is the temperature in Celsius times 9/5, plus 32.
 // You are given a variable celsius representing a temperature in Celsius. Use the variable fahrenheit already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the formula mentioned above to help convert the Celsius temperature to Fahrenheit
 
@@ -963,3 +957,23 @@ function countUniqueValues(arr) {
   return i + 1;
 }
 countUniqueValues([1, 2, 2, 5, 7, 7, 99]);
+
+// QUESTION 28
+
+// write a function called maxSubarraySum which accepts an array of integers and a number called n. the function should calculate the maximum sum of n consective elements in the array .
+
+function maxSubarraySum(arr, num) {
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr.length < num) return null;
+  for (let i = 0; i < num; i++) {
+    maxSum += arr[i];
+  }
+  tempSum = maxSum;
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
+}-
+maxSubarraySum([2, 3, 6, 4, 8, 1, 2, 3], 5);
