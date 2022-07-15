@@ -523,7 +523,7 @@ console.log(countOnline(users));
 // QUESTION 13
 // Finish writing the getArrayOfUsers function so that it returns an array containing all the properties in the object it receives as an argument.
 
-let users = {
+let usrs = {
   Alan: {
     age: 27,
     online: false,
@@ -975,5 +975,5 @@ function maxSubarraySum(arr, num) {
     maxSum = Math.max(maxSum, tempSum);
   }
   return maxSum;
-}-
-maxSubarraySum([2, 3, 6, 4, 8, 1, 2, 3], 5);
+}
+-maxSubarraySum([2, 3, 6, 4, 8, 1, 2, 3], 5);
