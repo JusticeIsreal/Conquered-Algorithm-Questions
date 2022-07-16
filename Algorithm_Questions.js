@@ -58,8 +58,8 @@ console.log(answer2([2, 5, 7, 8, 9]));
 // END OF SOLUTION
 
 // QUESSION 3
-//  write a program that remove negative or non integer from and array and return the sum of only positive integer
-
+//  write a program that remove negative or non integer from and array
+// and return the sum of only positive integer
 function sumonlynumber(arr) {
   // set a default value
   let sum = 0;
@@ -90,13 +90,17 @@ function onlyLowest(arr) {
   let upper = "";
   // loop through the string
   for (let i = 0; i < arr.length; i++) {
+    let elem = arr[i];
+    console.log(elem);
     // set a condition for the seperate the letters using ther charCodeAt values
-    if (arr.charCodeAt(i) >= 97 && arr.charCodeAt(i) <= 122) {
+    if (arr.toUpperCase().includes(elem)) {
       // all small letters accoding to the charCodeAt vlaue is stored in result
-      result += arr.charAt(i);
+      console.log(elem);
+      result += elem;
     } else {
       // not small letters is stored in upper value
-      upper += arr.charAt(i);
+      upper += elem;
+      console.log(upper);
     }
   }
   return { lower: result, uppercase: upper };
@@ -804,7 +808,8 @@ function mutatio(arr) {
 console.log(mutatio(["Mary", "Army"]));
 
 // QUESTION 23
-// Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+// Write a function that splits an array (first argument) into groups the length of size
+// (second argument) and returns them as a two - dimensional array.
 
 function chunkArrayInGroups(arr, size) {
   let newArr = [];
@@ -817,26 +822,27 @@ console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
 
 // QUESTION 24
 
-// write a function called same, which accepts two arrays. the function should return true if every value in the array has its corrsponding value squared in the second array. the frequency of values must be the same
+// write a function called same, which accepts two arrays. the function should return true if every
+// value in the array has its corrsponding value squared in the second array.the frequency of values must be the same
 
 const same = (arr1, arr2) => {
   // write a condition that checks for length to proceed
   if (arr1.length !== arr2.length) {
     return false;
   }
-  // create new arrays
+  // create new obj
   let newArr1 = {};
   let newArr2 = {};
   // create loop for arr1
   for (let val in arr1) {
-    // store values in new array1
+    // store values in new obj
     newArr1[val] = (newArr1[val] || 0) + 1;
   }
   for (let val in arr2) {
-    // store values in new array2
+    // store values in new object
     newArr2[val] = (newArr2[val] || 0) + 1;
   }
-  for (let key of newArr1) {
+  for (let key in newArr1) {
     if (!(key ** 2 in newArr2)) {
       return false;
     }
@@ -960,7 +966,8 @@ countUniqueValues([1, 2, 2, 5, 7, 7, 99]);
 
 // QUESTION 28
 
-// write a function called maxSubarraySum which accepts an array of integers and a number called n. the function should calculate the maximum sum of n consective elements in the array .
+// write a function called maxSubarraySum which accepts an array of integers and a number called n.
+// the function should calculate the maximum sum of n consective elements in the array.
 
 function maxSubarraySum(arr, num) {
   let maxSum = 0;
@@ -976,4 +983,136 @@ function maxSubarraySum(arr, num) {
   }
   return maxSum;
 }
--maxSubarraySum([2, 3, 6, 4, 8, 1, 2, 3], 5);
+console.log(maxSubarraySum([2, 3, 6, 4, 8, 1, 2, 3], 5));
+
+// QUESTION 30
+// find the longest palledrom substring from the string
+
+const palledrom = (str) => {
+  // creat an empty array to collect values
+  let newArr = [];
+
+  let arrWords = str.split(" ");
+
+  for (let i = 0; i < arrWords.length; i++) {
+    let element = arrWords[i];
+
+    let finalCheck = element.split("").reverse().join("");
+
+    if (finalCheck === arrWords[i]) {
+      newArr.push(element.length);
+    }
+  }
+  return Math.max(...newArr);
+};
+console.log(palledrom("madam you are at redivider noon"));
+
+// QUESTION 31
+// Given an array a[] of size N which contains elements
+// from 0 to N - 1, you need to
+// find all the elements occurring more than once in the given array.
+
+// Example 1:
+// Input:
+// N = 4
+// a[] = {0,3,1,2}
+// Output: -1
+// Explanation: N=4 and all elements from 0
+// to (N-1 = 3) are present in the given
+// array. Therefore output is -1.
+
+// Example 2:
+// Input:
+// N = 5
+// a[] = {2,3,1,2,3}
+// Output: 2 3
+// Explanation: 2 and 3 occur more than once
+// in the given array.
+
+const repeatArrayValues = (arr) => {
+  const elementMap = new Map();
+  const newArray = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let elem = arr[i];
+    if (elementMap.has(elem)) {
+      elementMap.set(elem, elementMap.get(elem) + 1);
+    } else {
+      elementMap.set(elem, 1);
+    }
+  }
+
+  for (let [key, value] of elementMap) {
+    if (value > 1) {
+      newArray.push(key);
+    }
+  }
+  if (newArray.length) {
+    return newArray.join(",");
+  } else {
+    return -1;
+  }
+};
+console.log(repeatArrayValues([4, 3, 4, 5]));
+
+// ANOTHER METHOD
+const repeatArrayValue = (arr) => {
+  let newArr = [];
+  const valueCollector = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    let elem = arr[i];
+    if (valueCollector[elem]) {
+      valueCollector[elem] += 1;
+    } else {
+      valueCollector[elem] = 1;
+    }
+  }
+  for (let val in valueCollector) {
+    if (valueCollector[val] > 1) {
+      newArr.push(val);
+    }
+  }
+  if (newArr.length) {
+    return newArr.join(",");
+  } else {
+    return -1;
+  }
+};
+console.log(repeatArrayValue([3, 4]));
+
+// QUESTION 32
+// Given an unsorted array arr[] of size N having both negative and positive integers.
+//  The task is place all negative element at the end of array without changing
+//  the order of positive element and negative element.
+
+// Example 1:
+// Input :
+// N = 8
+// arr[] = {1, -1, 3, 2, -7, -5, 11, 6 }
+// Output :
+// 1  3  2  11  6  -1  -7  -5
+// Example 2:
+// Input :
+// N=8
+// arr[] = {-5, 7, -3, -4, 9, 10, -1, 11}
+// Output :
+// 7  9  10  11  -5  -3  -4  -1
+
+const reArrangeArray = (arr) => {
+  const postiveValue = [];
+  const negativeValue = [];
+  let finalArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    let elem = arr[i];
+    console.log(elem);
+    if (elem > 0) {
+      postiveValue.push(elem);
+    } else {
+      negativeValue.push(elem);
+    }
+  }
+  return (finalArray = [...postiveValue, ...negativeValue]);
+};
+
+console.log(reArrangeArray([1, -1, 3, 2, -7, -5, 11, 6]));
