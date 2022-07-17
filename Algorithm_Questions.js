@@ -1116,3 +1116,301 @@ const reArrangeArray = (arr) => {
 };
 
 console.log(reArrangeArray([1, -1, 3, 2, -7, -5, 11, 6]));
+
+
+// QUESTION 25
+
+// given two strings , write a functionto determine if the second string is  an anagram of the first string. an anagram is a set of word that contain the same set of letters
+
+// METHOD 1
+const anagram = (str1, str2) => {
+  // set condition for length of both str
+  if (str1.lenght !== str2.length) {
+    return false;
+  }
+  // create empty obj to hold data
+  let holder = {};
+  // loop str1 and stor in obj
+  for (let i = 0; i < str1.length; i++) {
+    let elem = str1[i];
+    if (holder[elem]) {
+      holder[elem] += 1;
+    } else {
+      holder[elem] = 1;
+    }
+  }
+  for (let i = 0; i < str2.length; i++) {
+    let elem = str2[i];
+    if (!holder[elem]) {
+      return false;
+    } else {
+      holder[elem] -= 1;
+    }
+  }
+  return true;
+  // loop str2 and compare with str
+};
+anagram("moon", "noon");
+
+// METHOD 2
+
+const samewords = (str1, str2) => {
+  // set conditon for length
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  // convert str to lowrcase array and sort and back to string
+  str1 = str1.toLowerCase().replace(/[\W_]+/g, "");
+  str2 = str2.toLowerCase().replace(/[\W_]+/g, "");
+
+  let newStr1 = str1.split(" ").sort().join(" ");
+  let newStr2 = str2.split(" ").sort().join(" ");
+
+  // set conditon for final result
+  if (newStr1 === newStr2) {
+    return true;
+  }
+};
+samewords("teavh", "thkja");
+
+// QUESTION 26
+
+// write a function called sumZero which accepts a sorted array of integers. the function should find the first pair where the sum is 0.return an aray that includes both values that sum to 0 or return undefine if the pair does not exist
+
+const sumZero = (arr) => {
+  // use multiple pointer mthod
+  // set limit for begin and end of arr
+  let left = 0;
+  let right = arr.length - 1;
+  let newArr = [];
+
+  while (left < right) {
+    let sum = arr[left] + arr[right];
+    if (sum === 0) {
+      return newArr.push(sum);
+    } else if (sum > 0) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+};
+sumZero([-3, -2, -1, 0, 1, 2, 3]);
+
+// QUESTION 27
+// implement a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array . there can be negative numbers in the aray , but it will always be sorted .
+
+const countUniqueValue = (arr) => {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    let elem = arr[i];
+    if (!arr.includes(elem)) {
+      newArr.push(elem);
+    }
+  }
+  return newArr.length;
+};
+countUniqueValue([1, 1, 1, 2, 2, 2, 3, 4, 5, 6, 6, 8, 7]);
+
+// METHOD 2
+function countUniqueValues(arr) {
+  if (arr.length === 0) return 0;
+  var i = 0;
+  for (var j = 1; j < arr.length; j++) {
+    if (arr[i] !== arr[j]) {
+      i++;
+      arr[i] = arr[j];
+    }
+  }
+  return i + 1;
+}
+countUniqueValues([1, 2, 2, 5, 7, 7, 99]);
+
+// QUESTION 28
+
+// write a function called maxSubarraySum which accepts an array of integers and a number called n. the function should calculate the maximum sum of n consective elements in the array .
+
+function maxSubarraySum(arr, num) {
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr.length < num) return null;
+  for (let i = 0; i < num; i++) {
+    maxSum += arr[i];
+  }
+  tempSum = maxSum;
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
+}
+maxSubarraySum([2, 3, 6, 4, 8, 1, 2, 3], 5);
+
+
+
+// Question 29 BUBBLE SORT O(n2)
+
+// arrange set of array values in ascending order using BUBBLE SORT method
+
+// ES2015 WAY OF SORTING
+// [arr[indx1], arr[indx2]] = [arr[indx2], arr[indx1]]
+
+// ES5 WAY OF SORTING
+// let temp = arr[indx1];
+// arr[indx1] = arr[indx2];
+// arr[indx2] = temp;
+const bubbleSort = (arr) => {
+  // let noSwap; to stop apertion from keep loopin wen the arr is sorted to reduce time complexity
+  const swap = (arr, id1, id2) => {
+    [arr[id1], arr[id2]] = [arr[id2], arr[id1]];
+  };
+  let noSwap;
+  for (let i = arr.length; i > 0; i--) {
+    noSwap = true;
+    for (let j = 0; j < i - 1; i++) {
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
+        noSwap = false;
+      }
+    }
+    if (noSwap) break;
+  }
+  return arr;
+};
+bubbleSort([2, 4, 1, 5, 7]);
+
+
+
+//  QUESTION 30 MERGESORT O(nlogn)
+// Using merge sort,
+//  Merges two already sorted arrays
+
+function merge(arr1, arr2) {
+  let results = [];
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr2[j] > arr1[i]) {
+      results.push(arr1[i]);
+      i++;
+    } else {
+      results.push(arr2[j]);
+      j++;
+    }
+  }
+  while (i < arr1.length) {
+    results.push(arr1[i]);
+    i++;
+  }
+  while (j < arr2.length) {
+    results.push(arr2[j]);
+    j++;
+  }
+  return results;
+}
+merge([100, 200], [1, 2, 3, 5, 6]);
+
+// Merge function singlr array
+// function merge(arr1, arr2) {
+//   let results = [];
+//   let i = 0;
+//   let j = 0;
+//   while (i < arr1.length && j < arr2.length) {
+//     if (arr2[j] > arr1[i]) {
+//       results.push(arr1[i]);
+//       i++;
+//     } else {
+//       results.push(arr2[j]);
+//       j++;
+//     }
+//   }
+//   while (i < arr1.length) {
+//     results.push(arr1[i]);
+//     i++;
+//   }
+//   while (j < arr2.length) {
+//     results.push(arr2[j]);
+//     j++;
+//   }
+//   return results;
+// }
+
+// // Recrusive Merge Sort
+// function mergeSort(arr) {
+//   if (arr.length <= 1) return arr;
+//   let mid = Math.floor(arr.length / 2);
+//   let left = mergeSort(arr.slice(0, mid));
+//   let right = mergeSort(arr.slice(mid));
+//   return merge(left, sright);
+// }
+
+// mergeSort([10, 24, 76, 73]);
+
+const mergeIt = (arr1, arr3) => {
+  let newArr = [];
+  let i = 0;
+  let j = 0;
+
+  while (i < arr1.length && j < arr2.length) {
+    if (arr2[i] > arr1[i]) {
+      newArr.push(arr1[i]);
+      i++;
+    } else {
+      newArr.push(arr2[j]);
+      j++;
+    }
+  }
+  while (i < arr1.length) {
+    newArr.push(arr1[i]);
+    i++;
+  }
+  while (j < arr2.length) {
+    newArr.push(arr1[j]);
+    j++;
+  }
+  return newArr;
+};
+
+const mergeSort = (arr) => {
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  mergeIt(left, right);
+};
+mergeSort([2, 4, 1, 5]);
+
+
+// THE FASTEST ARRAY SORTING METHOD WITH TIME COMPLEXITY OF O(logn) is RADIX SORT
+
+function getDigit(num, i) {
+  return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+}
+
+function digitCount(num) {
+  if (num === 0) return 1;
+  return Math.floor(Math.log10(Math.abs(num))) + 1;
+}
+
+function mostDigits(nums) {
+  let maxDigits = 0;
+  for (let i = 0; i < nums.length; i++) {
+    maxDigits = Math.max(maxDigits, digitCount(nums[i]));
+  }
+  return maxDigits;
+}
+
+function radixSort(nums){
+    let maxDigitCount = mostDigits(nums);
+    for(let k = 0; k < maxDigitCount; k++){
+        let digitBuckets = Array.from({length: 10}, () => []);
+        for(let i = 0; i < nums.length; i++){
+            let digit = getDigit(nums[i],k);
+            digitBuckets[digit].push(nums[i]);
+        }
+        nums = [].concat(...digitBuckets);
+    }
+    return nums;
+}
+
+radixSort([23,345,5467,12,2345,9852])
