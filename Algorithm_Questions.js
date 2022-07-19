@@ -858,10 +858,12 @@ same([1, 2, 5, 8], [2, 5, 8, 6]);
 
 // QUESTION 25
 
-// given two strings , write a functionto determine if the second string is  an anagram of the first string. an anagram is a set of word that contain the same set of letters
+// given two strings , write a functionto determine if the second 
+// string is  an anagram of the first string.an anagram is a set of 
+// word that contain the same set of letters
 
 // METHOD 1
-const anagram = (str1, str2) => {
+const anagra = (str1, str2) => {
   // set condition for length of both str
   if (str1.lenght !== str2.length) {
     return false;
@@ -888,11 +890,11 @@ const anagram = (str1, str2) => {
   return true;
   // loop str2 and compare with str
 };
-anagram("moon", "noon");
+anagra("moon", "noon");
 
 // METHOD 2
 
-const samewords = (str1, str2) => {
+const sameword = (str1, str2) => {
   // set conditon for length
   if (str1.length !== str2.length) {
     return false;
@@ -909,13 +911,13 @@ const samewords = (str1, str2) => {
     return true;
   }
 };
-samewords("teavh", "thkja");
+sameword("teavh", "thkja");
 
 // QUESTION 26
 
 // write a function called sumZero which accepts a sorted array of integers. the function should find the first pair where the sum is 0.return an aray that includes both values that sum to 0 or return undefine if the pair does not exist
 
-const sumZero = (arr) => {
+const sumZer = (arr) => {
   // use multiple pointer mthod
   // set limit for begin and end of arr
   let left = 0;
@@ -933,12 +935,12 @@ const sumZero = (arr) => {
     }
   }
 };
-sumZero([-3, -2, -1, 0, 1, 2, 3]);
+sumZer([-3, -2, -1, 0, 1, 2, 3]);
 
 // QUESTION 27
 // implement a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array . there can be negative numbers in the aray , but it will always be sorted .
 
-const countUniqueValue = (arr) => {
+const countUniqueValu = (arr) => {
   let newArr = [];
   for (let i = 0; i < arr.length; i++) {
     let elem = arr[i];
@@ -948,7 +950,7 @@ const countUniqueValue = (arr) => {
   }
   return newArr.length;
 };
-countUniqueValue([1, 1, 1, 2, 2, 2, 3, 4, 5, 6, 6, 8, 7]);
+countUniqueValu([1, 1, 1, 2, 2, 2, 3, 4, 5, 6, 6, 8, 7]);
 
 // METHOD 2
 function countUniqueValues(arr) {
@@ -1120,7 +1122,9 @@ console.log(reArrangeArray([1, -1, 3, 2, -7, -5, 11, 6]));
 
 // QUESTION 25
 
-// given two strings , write a functionto determine if the second string is  an anagram of the first string. an anagram is a set of word that contain the same set of letters
+// given two strings , write a functionto determine if the second string is 
+//  an anagram of the first string.an anagram is a set of word that contain 
+// the same set of letters
 
 // METHOD 1
 const anagram = (str1, str2) => {
@@ -1175,7 +1179,9 @@ samewords("teavh", "thkja");
 
 // QUESTION 26
 
-// write a function called sumZero which accepts a sorted array of integers. the function should find the first pair where the sum is 0.return an aray that includes both values that sum to 0 or return undefine if the pair does not exist
+// write a function called sumZero which accepts a sorted array of integers. 
+// the function should find the first pair where the sum is 0.return an aray 
+// that includes both values that sum to 0 or return undefine if the pair does not exist
 
 const sumZero = (arr) => {
   // use multiple pointer mthod
@@ -1198,7 +1204,9 @@ const sumZero = (arr) => {
 sumZero([-3, -2, -1, 0, 1, 2, 3]);
 
 // QUESTION 27
-// implement a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array . there can be negative numbers in the aray , but it will always be sorted .
+// implement a function called countUniqueValues, which accepts a sorted array, 
+// and counts the unique values in the array.there can be negative numbers in 
+// the aray, but it will always be sorted.
 
 const countUniqueValue = (arr) => {
   let newArr = [];
@@ -1228,7 +1236,9 @@ countUniqueValues([1, 2, 2, 5, 7, 7, 99]);
 
 // QUESTION 28
 
-// write a function called maxSubarraySum which accepts an array of integers and a number called n. the function should calculate the maximum sum of n consective elements in the array .
+// write a function called maxSubarraySum which accepts an array of integers 
+// and a number called n.the function should calculate the maximum sum of n
+//  consective elements in the array.
 
 function maxSubarraySum(arr, num) {
   let maxSum = 0;
