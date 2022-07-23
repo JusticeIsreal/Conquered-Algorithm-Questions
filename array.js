@@ -156,7 +156,7 @@ class singleLinkedlist {
     this.tail = null;
     this.length = 0;
   }
-  // /add to the end of a linked list
+  // /add to the end of a linked list O(1)
   push(value) {
     var newNode = new Node(value);
     if (!this.head) {
@@ -169,7 +169,7 @@ class singleLinkedlist {
     this.length++;
     return this;
   }
-  // remove from the end of a linked list
+  // remove from the end of a linked list 0(1) or o(n)
   pop() {
     if (!this.head) return undefined;
     let current = this.head;
@@ -188,7 +188,7 @@ class singleLinkedlist {
     }
     return current;
   }
-  // to remove the first Node
+  // to remove the first Node 0(1) or o(n)
   shift() {
     if (!this.head) {
       return;
@@ -199,7 +199,7 @@ class singleLinkedlist {
     // console.log(firstNode)
     return firstNode;
   }
-  // add to the beginning of the list
+  // add to the beginning of the list O(1)
   unshift(value) {
     let newNode = new Node(value);
 
@@ -221,7 +221,7 @@ class singleLinkedlist {
       current = current.next;
     }
   }
-  // to get value at specific index
+  // to get value at specific index o(n)
   get(index) {
     if (index < 0 || index >= this.length) return null;
 
@@ -233,7 +233,7 @@ class singleLinkedlist {
     }
     return current;
   }
-  // to set new value at specific index
+  // to set new value at specific index  o(n)
   set(index, value) {
     let newValue = this.get(index);
     if (newValue) {
@@ -256,26 +256,53 @@ class singleLinkedlist {
     this.length++;
     return true;
   }
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (this.length === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+
+    let prevNode = this.get(index - 1);
+    let removed = prevNode.next;
+    prevNode.next = removed.next;
+    this.length--;
+
+    return removed;
+  }
+
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    let next;
+    let prev = null;
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+  }
 }
 
 var singleList = new singleLinkedlist();
-// singleList.push("yes");
-// singleList.push("no");
-// singleList.push(6);
-// singleList.insert(2, 789)
+singleList.push("yes");
+singleList.push("no");
+singleList.push(6);
+singleList.insert(2, 789);
 // singleList.insert(4, 78);
-// // console.log(singleList.get(1));
-// // singleList.shift();
-// // singleList.pop();
-// // singleList.unshift("hgjhghjg");
-// singleList.traverse();
-// console.log(singleList);
+// console.log(singleList.get(1));
+// singleList.shift();
+// singleList.pop();
+// singleList.unshift("hgjhghjg");
+singleList.traverse();
+// singleList.reverse()
+console.log(singleList);
 
-let arr = [4, 5, 3, 1, 7, 8, 3];
-for (let i = 0; i < arr.length; i++) {
-  let elem = arr[i];
-  singleList.unshift(elem);
-  singleList.insert(1, 78);
-  console.log(singleList);
-  console.log(i);
-}
+// let arr = [4, 5, 3, 1, 7, 8, 3];
+// for (let i = 0; i < arr.length; i++) {
+//   let elem = arr[i];
+//   singleList.unshift(elem);
+//   singleList.insert(1, 78);
+//   console.log(singleList);
+//   console.log(i);
+// }
