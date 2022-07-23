@@ -380,7 +380,7 @@ console.log(longestWord("hello this is another testing for verification"));
 // customer is the customer has made at least 5 order of the minimum value of 20.
 // the customers and their past order history is given below
 
-const obj = {
+const cusObj = {
   Ben10: [22, 30, 11, 17, 15, 52, 27, 12, 50],
   Sameer: [5, 17, 30, 33, 40, 22, 26, 10, 11, 45],
   Tony: [5, 27, 30, 33, 40, 22, 26, 10, 21, 45],
@@ -388,11 +388,11 @@ const obj = {
   Zeesham: [22, 30, 11, 5, 17, 30, 6, 57],
 };
 
-const qualifiedCustomer = (customers) => {
+const qualified= (customers) => {
   let rewardBox = {};
   let message = "";
   for (let customer in customers) {
-    rewardBox[customer] = obj[customer].filter((el) => el >= 20);
+    rewardBox[customer] = cusObj[customer].filter((el) => el >= 20);
 
     if (rewardBox[customer].length >= 5) {
       message += `Congratulations ${customer} you just earned PREMIUM MEMBERSHIP \n`;
@@ -400,7 +400,7 @@ const qualifiedCustomer = (customers) => {
   }
   return message;
 };
-console.log(qualifiedCustomer(obj));
+console.log(qualified(cusObj));
 
 //  QUESTION 11
 
@@ -858,8 +858,8 @@ same([1, 2, 5, 8], [2, 5, 8, 6]);
 
 // QUESTION 25
 
-// given two strings , write a functionto determine if the second 
-// string is  an anagram of the first string.an anagram is a set of 
+// given two strings , write a functionto determine if the second
+// string is  an anagram of the first string.an anagram is a set of
 // word that contain the same set of letters
 
 // METHOD 1
@@ -987,7 +987,7 @@ function maxSubarraySum(arr, num) {
 }
 console.log(maxSubarraySum([2, 3, 6, 4, 8, 1, 2, 3], 5));
 
-// QUESTION 30
+// QUESTION 29
 // find the longest palledrom substring from the string
 
 const palledrom = (str) => {
@@ -1009,7 +1009,7 @@ const palledrom = (str) => {
 };
 console.log(palledrom("madam you are at redivider noon"));
 
-// QUESTION 31
+// QUESTION 30
 // Given an array a[] of size N which contains elements
 // from 0 to N - 1, you need to
 // find all the elements occurring more than once in the given array.
@@ -1083,7 +1083,7 @@ const repeatArrayValue = (arr) => {
 };
 console.log(repeatArrayValue([3, 4]));
 
-// QUESTION 32
+// QUESTION 31
 // Given an unsorted array arr[] of size N having both negative and positive integers.
 //  The task is place all negative element at the end of array without changing
 //  the order of positive element and negative element.
@@ -1119,11 +1119,10 @@ const reArrangeArray = (arr) => {
 
 console.log(reArrangeArray([1, -1, 3, 2, -7, -5, 11, 6]));
 
+// QUESTION 32
 
-// QUESTION 25
-
-// given two strings , write a functionto determine if the second string is 
-//  an anagram of the first string.an anagram is a set of word that contain 
+// given two strings , write a functionto determine if the second string is
+//  an anagram of the first string.an anagram is a set of word that contain
 // the same set of letters
 
 // METHOD 1
@@ -1177,10 +1176,10 @@ const samewords = (str1, str2) => {
 };
 samewords("teavh", "thkja");
 
-// QUESTION 26
+// QUESTION 33
 
-// write a function called sumZero which accepts a sorted array of integers. 
-// the function should find the first pair where the sum is 0.return an aray 
+// write a function called sumZero which accepts a sorted array of integers.
+// the function should find the first pair where the sum is 0.return an aray
 // that includes both values that sum to 0 or return undefine if the pair does not exist
 
 const sumZero = (arr) => {
@@ -1203,9 +1202,9 @@ const sumZero = (arr) => {
 };
 sumZero([-3, -2, -1, 0, 1, 2, 3]);
 
-// QUESTION 27
-// implement a function called countUniqueValues, which accepts a sorted array, 
-// and counts the unique values in the array.there can be negative numbers in 
+// QUESTION 34
+// implement a function called countUniqueValues, which accepts a sorted array,
+// and counts the unique values in the array.there can be negative numbers in
 // the aray, but it will always be sorted.
 
 const countUniqueValue = (arr) => {
@@ -1234,9 +1233,9 @@ function countUniqueValues(arr) {
 }
 countUniqueValues([1, 2, 2, 5, 7, 7, 99]);
 
-// QUESTION 28
+// QUESTION 35
 
-// write a function called maxSubarraySum which accepts an array of integers 
+// write a function called maxSubarraySum which accepts an array of integers
 // and a number called n.the function should calculate the maximum sum of n
 //  consective elements in the array.
 
@@ -1256,9 +1255,8 @@ function maxSubarraySum(arr, num) {
 }
 maxSubarraySum([2, 3, 6, 4, 8, 1, 2, 3], 5);
 
-
-
-// Question 29 BUBBLE SORT O(n2)
+// Question 36
+//  BUBBLE SORT O(n2)
 
 // arrange set of array values in ascending order using BUBBLE SORT method
 
@@ -1289,9 +1287,8 @@ const bubbleSort = (arr) => {
 };
 bubbleSort([2, 4, 1, 5, 7]);
 
-
-
-//  QUESTION 30 MERGESORT O(nlogn)
+//  QUESTION 36
+//  MERGESORT O(nlogn)
 // Using merge sort,
 //  Merges two already sorted arrays
 
@@ -1390,7 +1387,6 @@ const mergeSort = (arr) => {
 };
 mergeSort([2, 4, 1, 5]);
 
-
 // THE FASTEST ARRAY SORTING METHOD WITH TIME COMPLEXITY OF O(logn) is RADIX SORT
 
 function getDigit(num, i) {
@@ -1410,17 +1406,63 @@ function mostDigits(nums) {
   return maxDigits;
 }
 
-function radixSort(nums){
-    let maxDigitCount = mostDigits(nums);
-    for(let k = 0; k < maxDigitCount; k++){
-        let digitBuckets = Array.from({length: 10}, () => []);
-        for(let i = 0; i < nums.length; i++){
-            let digit = getDigit(nums[i],k);
-            digitBuckets[digit].push(nums[i]);
-        }
-        nums = [].concat(...digitBuckets);
+function radixSort(nums) {
+  let maxDigitCount = mostDigits(nums);
+  for (let k = 0; k < maxDigitCount; k++) {
+    let digitBuckets = Array.from({ length: 10 }, () => []);
+    for (let i = 0; i < nums.length; i++) {
+      let digit = getDigit(nums[i], k);
+      digitBuckets[digit].push(nums[i]);
     }
-    return nums;
+    nums = [].concat(...digitBuckets);
+  }
+  return nums;
 }
 
-radixSort([23,345,5467,12,2345,9852])
+radixSort([23, 345, 5467, 12, 2345, 9852]);
+
+// QUESTION 37
+// Binary search used to search index of value in a sorted array.
+
+const binary = (arr, value) => {
+  let start = 0;
+  let end = arr.length - 1;
+  let mid = Math.floor((start + end) / 2);
+
+  while (value !== arr[mid]) {
+    if (arr[mid] > value) {
+      end = mid - 1;
+    } else {
+      start = mid + 1;
+    }
+    mid = Math.floor((start + end) / 2);
+  }
+  return mid;
+};
+
+console.log(binary([2, 3, 4, 5, 6, 7, 10], 7));
+console.log("first");
+
+// QUESTION 38
+// below is list of customers with the amount spent at a particular store.
+// As the software engineer ,write a function that selects the customers that has bought
+// products above 20$ for more atleast 5 times
+
+const obj = {
+  Ben10: [22, 30, 11, 17, 15, 52, 27, 12, 50],
+  Sameer: [5, 17, 30, 33, 40, 22, 26, 10, 11, 45],
+  Zeesham: [22, 30, 11, 5, 17, 30, 6, 57],
+};
+
+const qualifiedCustomer = (customers) => {
+  let rewardBox = {};
+  let message = "";
+  for (let customer in customers) {
+    rewardBox[customer] = obj[customer].filter((el) => el >= 20);
+    if (rewardBox[customer].length >= 5) {
+      message += `Congratulations ${customer} you just earned PREMIUM MEMBERSHIP \n`;
+    }
+  }
+  return message;
+};
+console.log(qualifiedCustomer(obj));
