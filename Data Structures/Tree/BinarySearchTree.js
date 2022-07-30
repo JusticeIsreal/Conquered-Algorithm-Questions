@@ -109,7 +109,18 @@ class BinarySearchTree {
       data.push(current.value);
     }
     transverse(this.root);
-    console.log(data)
+    console.log(data);
+    return data;
+  }
+  DFSInOrder() {
+    let data = [];
+    function transverse(current) {
+      if (current.left) transverse(current.left);
+      data.push(current.value);
+      if (current.right) transverse(current.right);
+    }
+    transverse(this.root);
+    console.log(data);
     return data;
   }
 }
@@ -122,7 +133,12 @@ tree.insert(11);
 tree.insert(2);
 tree.insert(16);
 tree.insert(7);
+tree.insert(19);
+tree.insert(21);
+tree.insert(1);
+tree.insert(27);
 console.log(tree);
 console.log(tree.DFSPreOrder());
 console.log(tree.DFSPostOrder());
+console.log(tree.DFSInOrder());
 console.log(tree.BreathFirstSearch());
