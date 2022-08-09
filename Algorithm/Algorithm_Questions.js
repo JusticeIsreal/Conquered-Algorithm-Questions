@@ -1466,3 +1466,18 @@ const qualifiedCustomer = (customers) => {
   return message;
 };
 console.log(qualifiedCustomer(obj));
+
+// QUESTION 39
+
+// write a function to return the missing numbers
+const missingNum = (arr) => {
+  let newArray = [];
+  let maxVal = Math.max(...arr);
+  for (let i = 1; i < maxVal; i++) {
+    if (!arr.includes(i)) {
+      newArray.push(i);
+    }
+  }
+  return newArray;
+};
+console.log(missingNum([1, 3, 5, 6, 7, 10, 25]));
