@@ -23,9 +23,7 @@ console.log(answer([1, 5, -6, 20, -5, 10, -8]));
 // END OF SOLUTION
 
 // QUESTION 2
-// write a program to return an array secon smallers value and second largest value..   arr2=[2,5,7,8,9] answer =[5,8]
-
-// given array
+// write a program to return an array second smallers value and second largest value..   arr2=[2,5,7,8,9] answer =[5,8]
 
 const answer2 = (arr2) => {
   // create an empty new array to store new values
@@ -48,13 +46,9 @@ const answer2 = (arr2) => {
   let max2 = Math.max(...newarr);
   // create anothe array to carry max and min value for new array
   let newarr2 = newarr.push(min2, max2);
-
-  // log  value
-  // console.log(newarr2);
   return newarr2;
 };
 console.log(answer2([2, 5, 7, 8, 9]));
-
 // END OF SOLUTION
 
 // QUESSION 3
@@ -76,11 +70,11 @@ function sumonlynumber(arr) {
   return sum;
 }
 console.log(sumonlynumber([3, "6", 9, "5", 2]));
+// END OF SOLUTION
 
 // QUESSION 4
-// Wrote a javaScript function to Seperate smaller case from upper case in the string below
+// Write a javaScript function to Seperate smaller case from upper case in the string below
 //a string is a sequnce of characater. a, b c => abc
-
 // given string
 let message = "This is Port Harcourt";
 //length;
@@ -91,16 +85,13 @@ function onlyLowest(arr) {
   // loop through the string
   for (let i = 0; i < arr.length; i++) {
     let elem = arr[i];
-    console.log(elem);
     // set a condition for the seperate the letters using ther charCodeAt values
     if (arr.toUpperCase().includes(elem)) {
       // all small letters accoding to the charCodeAt vlaue is stored in result
-      console.log(elem);
       result += elem;
     } else {
       // not small letters is stored in upper value
       upper += elem;
-      console.log(upper);
     }
   }
   return { lower: result, uppercase: upper };
@@ -118,7 +109,6 @@ function removepuntuation(str) {
   // loop through the string values
   for (let i = 0; i < str.length; i++) {
     // set conditions to seperate puntuation fron string using their charCodeAt values
-
     if (
       str.charCodeAt(i) === 46 ||
       str.charCodeAt(i) === 63 ||
@@ -141,25 +131,18 @@ console.log(removepuntuation("love ?!,good"));
 
 // Question 6
 //     The Morse code encodes every character as a sequence of "dots" and "dashes".
-
 //     For example, the letter A is coded as ·−, letter Q is coded as −−·−, and digit 1 is coded as ·−−−.
-
 //     The Morse code is case-insensitive, traditionally capital letters are used.
 //     When the message is written in Morse code, a single space is used to separate the character codes and 3 spaces are used to separate words.
-
 //     For example, the message `Decadev` in Morse code is -.. . -.-. .- -.. . ...-
-
 //     NOTE: Extra spaces before or after the code have no meaning and should be ignored. In addition to letters, digits and some punctuation,
 //     there are some special service codes, the most notorious of those is the international distress signal SOS (that was first issued by Titanic), that is coded as ···−−−···.
 //     These special codes are treated as single special characters, and usually are transmitted as separate words.
 //     Your task is to implement a function that would take the morse code as input and return a decoded human-readable string.
-
 //     For example.
-
 //     ```js
 //     decodeMorse("-.. . -.-. .- -.. . ...-");
 //     should return "DECADEV"
-
 //     Use the constant `MORSE_CODE` below to translate.
 
 // Translator
@@ -224,7 +207,6 @@ const MORSE_CODE = {
 const decodeMorseValue = (morseCode) => {
   // to convert string to array
   const splitMorseCode = morseCode.split(" ");
-
   // a variable to hold each character
   let readableStringValue = "";
   // loop through new array
@@ -238,9 +220,9 @@ const decodeMorseValue = (morseCode) => {
   }
   return readableStringValue;
 };
-
 console.log(decodeMorseValue("...---..."));
 console.log(decodeMorseValue("--"));
+// END OF SOLUTION
 
 // QUESTION 7
 // write a program that seperates the vowels from consonant and numbers in a given sting
@@ -248,9 +230,9 @@ const sepVC = (word) => {
   let allVowel = "a, e, i, o, u, A, E, I, O, U";
   let number = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9";
   let allVowels = allVowel.split("");
+  console.log(allVowels);
   let numbers = number.split("");
   // set a variable to store new values
-
   let vowels = "";
   let consonant = "";
   let num = "";
@@ -258,7 +240,7 @@ const sepVC = (word) => {
     let elem = word[i];
     if (allVowels.includes(elem)) {
       vowels += elem;
-    } else if (number.includes(elem)) {
+    } else if (numbers.includes(elem)) {
       num += elem;
     } else if (!allVowels.includes(elem)) {
       consonant += elem;
@@ -272,6 +254,7 @@ console.log(
     "jlooppa62467244724eiugxdhahah1627zdgasgdgaegdgdsfs7367824671ncjhfijhvmt774vnakllkj"
   )
 );
+// END OF SOLUTION
 
 // Questionn 8
 //  An atm has 100, 20, 9, and 1 Naira bills (NGN) available to be dispensed.
@@ -331,6 +314,7 @@ console.log(atmMachine([10409]));
 atmMachine();
 
 // altlernative solution
+
 const withdraw = (amount, oldArray = []) => {
   box = [...oldArray];
   let num;
@@ -355,6 +339,7 @@ const withdraw = (amount, oldArray = []) => {
   return box;
 };
 console.log(withdraw(10409));
+// END OF SOLUTION
 
 // QUESTION 9
 // write a program that returns  the longest word from the given string
@@ -372,10 +357,11 @@ const longestWord = (sentences) => {
 
 console.log(longestWord("hello guys this is justice isreal code"));
 console.log(longestWord("hello this is another testing for verification"));
+// END OF SOLUTION
 
 // QUESTION 10
 // We have an oject of customers for our food delivery
-// app with th information about their past order with oder value.
+// app with th information about their past order with order value.
 // write a javascript program to give a "PREMIUM MEMBERSHIP" to the
 // customer is the customer has made at least 5 order of the minimum value of 20.
 // the customers and their past order history is given below
@@ -388,11 +374,11 @@ const cusObj = {
   Zeesham: [22, 30, 11, 5, 17, 30, 6, 57],
 };
 
-const qualified= (customers) => {
+const qualified = (customers) => {
   let rewardBox = {};
   let message = "";
   for (let customer in customers) {
-    rewardBox[customer] = cusObj[customer].filter((el) => el >= 20);
+    rewardBox[customer] = customers[customer].filter((el) => el >= 20);
 
     if (rewardBox[customer].length >= 5) {
       message += `Congratulations ${customer} you just earned PREMIUM MEMBERSHIP \n`;
@@ -401,6 +387,7 @@ const qualified= (customers) => {
   return message;
 };
 console.log(qualified(cusObj));
+// END OF SOLUTION
 
 //  QUESTION 11
 
@@ -482,10 +469,16 @@ function dup(str = "") {
 // console.log(switchChar("decagon", "lmnbvcxzasdfghjktyrueiwoqp", "zdewsaqxcfrtgvbhyujnmkilop"));
 // console.log(switchChar("we", "wkeap", "mgren"));
 switchChar("we", "wkeap", "mgren");
+// END OF SOLUTION
 
 // QUESTION 12 .
 
-// We've defined a function countOnline which accepts one argument (a users object). Use a for...in statement within this function to loop through the users object passed into the function and return the number of users whose online property is set to true. An example of a users object which could be passed to countOnline is shown below. Each user will have an online property with either a true or false value.
+// We've defined a function countOnline which accepts
+// one argument(a users object).Use a for...in statement within this function to
+// loop through the users object passed into the function and return the number of users
+// whose online property is set to true.An example of a users object which could be
+// passed to countOnline is shown below.Each user will have an online property with
+// either a true or false value.
 
 // {
 //   Alan: {
@@ -516,17 +509,17 @@ function countOnline(usersObj) {
   for (let user in usersObj) {
     if (usersObj[user].online === true) {
       console.log(usersObj[user].online);
-      //code
       total++;
     }
   }
   return total;
 }
 console.log(countOnline(users));
+// END OF SOLUTION
 
 // QUESTION 13
-// Finish writing the getArrayOfUsers function so that it returns an array containing all the properties in the object it receives as an argument.
-
+// Finish writing the getArrayOfUsers function so that it returns an array
+//  containing all the properties in the object it receives as an argument.
 let usrs = {
   Alan: {
     age: 27,
@@ -550,9 +543,16 @@ function getArrayOfUsers(obj) {
   return total;
 }
 console.log(getArrayOfUsers(users));
+// END OF SOLUTION
 
 // QUESTION 14
-// Take a look at the object we've provided in the code editor. The user object contains three keys. The data key contains five keys, one of which contains an array of friends. From this, you can see how flexible objects are as data structures. We've started writing a function addFriend. Finish writing it so that it takes a user object and adds the name of the friend argument to the array stored in user.data.friends and returns that array.
+// Take a look at the object we've provided in the code editor.
+// The user object contains three keys.The data key contains five keys,
+// one of which contains an array of friends.From this,
+// you can see how flexible objects are as data structures.
+// We've started writing a function addFriend. Finish writing it so that
+//  it takes a user object and adds the name of the friend argument to the
+//  array stored in user.data.friends and returns that array.
 
 let user = {
   name: "Kenneth",
@@ -578,22 +578,27 @@ function addFriend(userObj, friend) {
 }
 
 console.log(addFriend(user, "Pete"));
+// END OF SOLUTION
 
 // QUESTION 15
 // The formula to convert from Celsius to Fahrenheit is the temperature in Celsius times 9/5, plus 32.
-// You are given a variable celsius representing a temperature in Celsius. Use the variable fahrenheit already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the formula mentioned above to help convert the Celsius temperature to Fahrenheit
-
+// You are given a variable celsius representing a temperature in Celsius.
+// Use the variable fahrenheit already defined and assign it the Fahrenheit temperature
+// equivalent to the given Celsius temperature.Use the formula mentioned above to help
+// convert the Celsius temperature to Fahrenheit
 function convertToF(celsius) {
   let fahrenheit;
   fahrenheit = (celsius * 9) / 5 + 32;
   return fahrenheit;
 }
 console.log(convertToF(30));
+// END OF SOLUTION
 
-// QUESTION 14
-
-// Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
-// Remember, you can iterate through an array with a simple for loop, and access each member with array syntax arr[i].
+// QUESTION 16
+// Return an array consisting of the largest number from each provided sub-array.
+//  For simplicity, the provided array will contain exactly 4 sub - arrays.
+// Remember, you can iterate through an array with a simple for loop, and access
+// each member with array syntax arr[i].
 
 function largestOfFour(arr) {
   const results = [];
@@ -607,7 +612,6 @@ function largestOfFour(arr) {
     }
     results[i] = largestNumber;
   }
-
   return results;
 }
 console.log(
@@ -618,19 +622,20 @@ console.log(
     [1000, 1001, 857, 1],
   ])
 );
+// END OF SOLUTION
 
-// QUESTION 15
-
-// Check if a string (first argument, str) ends with the given target string (second argument, target).
-
+// QUESTION 17
+// Check if a string (first argument, str) ends with the
+// given target string(second argument, target).
 function confirmEnding(str, target) {
   return str.slice(str.length - target.length) === target;
 }
 console.log(confirmEnding("He has to give me a new name", "name"));
+// END OF SOLUTION
 
-// QUESTION 16
-
-// Repeat a given string str (first argument) for num times (second argument). Return an empty string if num is not a positive number. For the purpose of this challenge, do not use the built-in .repeat() method.
+// QUESTION 18
+// Repeat a given string str (first argument) for num times (second argument). Return an empty string if num is not a positive number.
+//  For the purpose of this challenge, do not use the built -in .repeat() method.
 function repeatStringNumTimes(str, num) {
   let accumulatedStr = "";
 
@@ -640,19 +645,18 @@ function repeatStringNumTimes(str, num) {
   return accumulatedStr;
 }
 console.log(repeatStringNumTimes("abc", 3));
+// END OF SOLUTION
 
-// QUESTION 17
-
-// Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending
+// QUESTION 19
+// Truncate a string (first argument) if it is longer than the given maximum string length (second argument).
+// Return the truncated string with a ...ending
 function truncateString(str, num) {
   let newstr = str.split("").length;
   let newstr1 = str.split("");
 
-  console.log(num);
   let gg = ["..."];
   if (newstr > num) {
-    let answer = newstr1.splice(0, num).join("") + "...";
-    console.log(answer);
+    let answer = newstr1.splice(0, num).join("") + gg;
     return answer;
   } else {
     return str;
@@ -665,10 +669,11 @@ console.log(
     "A-tisket a-tasket A green and yellow basket".length
   )
 );
+// END OF SOLUTION
 
-// QUESTION 18
-
-// Create a function that looks through an array arr and returns the first element in it that passes a 'truth test'. This means that given an element x, the 'truth test' is passed if func(x) is true. If no element passes the test, return undefined.
+// QUESTION 20
+// Create a function that looks through an array arr and returns the first element in it that passes a 'truth test'.
+//  This means that given an element x, the 'truth test' is passed if func(x) is true.If no element passes the test, return undefined.
 
 function findElement(arr, func) {
   let num = 0;
@@ -683,11 +688,10 @@ function findElement(arr, func) {
   return undefined;
 }
 console.log(findElement([1, 2, 3, 4], (num) => num % 2 === 0));
+// END OF SOLUTION
 
-// QUESTION 18
-
+// QUESTION 21
 // Check if a value is classified as a boolean primitive. Return true or false.
-
 // Boolean primitives are true and false.
 
 function booWho(bool) {
@@ -698,11 +702,11 @@ function booWho(bool) {
   }
 }
 console.log(booWho(1));
+// END OF SOLUTION
 
-// QUESTION 18
-
-// Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
-
+// QUESTION 22
+// Return the provided string with the first letter of each word capitalized.
+// Make sure the rest of the word is in lower case.
 // For the purpose of this exercise, you should also capitalize connecting words like the and of.
 
 function titleCase(str) {
@@ -717,9 +721,9 @@ function titleCase(str) {
 }
 console.log();
 titleCase("I'm a little tea pot");
+// END OF SOLUTION
 
-// QUESTION 19
-
+// QUESTION 23
 // You are given two arrays and an index.
 // Copy each element of the first array into the second array, in order.
 // Begin inserting elements at index n of the second array.
@@ -732,7 +736,6 @@ function frankenSplice(arr1, arr2, n) {
 }
 console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
 //  OR
-
 function frankenSplic(arr1, arr2, n) {
   let localArray = arr2.slice();
   for (let i = 0; i < arr1.length; i++) {
@@ -742,9 +745,9 @@ function frankenSplic(arr1, arr2, n) {
   return localArray;
 }
 console.log(frankenSplic([1, 2], ["a", "b"], 1));
+// END OF SOLUTION
 
-// QUESTION 20
-
+// QUESTION 24
 // Remove all falsy values from an array.
 // Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
 // Hint: Try converting each value to a Boolean.
@@ -754,22 +757,22 @@ function bouncer(arr) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i]) newArray.push(arr[i]);
   }
-  console.log(newArray);
   return newArray;
 }
 console.log(bouncer([7, "ate", "", false, 9]));
-
 //  OR
 function bounce(arr) {
   return arr.filter(Boolean);
 }
 console.log(bounce([7, "ate", "", false, 9]));
+// END OF SOLUTION
 
-// QUESTION 21
-
-// Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
+// QUESTION 25
+// Return the lowest index at which a value (second argument) should be inserted into an array
+// (first argument) once it has been sorted.The returned value should be a number.
 // For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
-// Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
+// Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted
+// it will look like[3, 5, 20] and 19 is less than 20(index 2) and greater than 5(index 1).
 
 function getIndexToIns(arr, num) {
   arr.push(num);
@@ -779,12 +782,17 @@ function getIndexToIns(arr, num) {
 }
 console.log(getIndexToIns([40, 80, 60], 50));
 console.log(getIndexToIns([2, 20, 10], 19));
+// END OF SOLUTION
 
-// QUESTION 22
-// Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
-// For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
-// The arguments ["hello", "hey"] should return false because the string hello does not contain a y.
-// Lastly, ["Alien", "line"], should return true because all of the letters in line are present in Alien.
+// QUESTION 26
+// Return true if the string in the first element of the array contains all of
+// the letters of the string in the second element of the array.
+// For example, ["hello", "Hello"], should return true because all of the letters in
+// the second string are present in the first, ignoring case.
+// The arguments ["hello", "hey"] should return false because the
+// string hello does not contain a y.
+// Lastly, ["Alien", "line"], should return true because all of
+// the letters in line are present in Alien.
 
 function mutation(arr) {
   let test = arr[1].toLowerCase();
@@ -806,8 +814,21 @@ function mutatio(arr) {
   }
 }
 console.log(mutatio(["Mary", "Army"]));
+// OR
+function mutati(arr) {
+  let newArr = arr[0].toLowerCase();
+  let checkArr = arr[1].toLowerCase();
+  if (newArr !== checkArr) {
+    return false;
+  } else {
+    return true;
+  }
+}
+console.log(mutati(["Mary", "mary"]));
+// END OF SOLUTION
 
-// QUESTION 23
+
+// QUESTION 27
 // Write a function that splits an array (first argument) into groups the length of size
 // (second argument) and returns them as a two - dimensional array.
 
@@ -819,9 +840,11 @@ function chunkArrayInGroups(arr, size) {
   return newArr;
 }
 console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+// END OF SOLUTION
 
-// QUESTION 24
 
+
+// QUESTION 28
 // write a function called same, which accepts two arrays. the function should return true if every
 // value in the array has its corrsponding value squared in the second array.the frequency of values must be the same
 
@@ -855,10 +878,12 @@ const same = (arr1, arr2) => {
   // set condition for arra2
 };
 same([1, 2, 5, 8], [2, 5, 8, 6]);
+// END OF SOLUTION
 
-// QUESTION 25
 
-// given two strings , write a functionto determine if the second
+
+// QUESTION 29
+// given two strings , write a function to determine if the second
 // string is  an anagram of the first string.an anagram is a set of
 // word that contain the same set of letters
 
@@ -912,10 +937,15 @@ const sameword = (str1, str2) => {
   }
 };
 sameword("teavh", "thkja");
+// END OF SOLUTION
 
-// QUESTION 26
 
-// write a function called sumZero which accepts a sorted array of integers. the function should find the first pair where the sum is 0.return an aray that includes both values that sum to 0 or return undefine if the pair does not exist
+
+// QUESTION 30
+// write a function called sumZero which accepts a sorted array of integers. 
+// the function should find the
+// first pair where the sum is 0.return an aray that includes both values 
+// that sum to 0 or return undefine if the pair does not exist
 
 const sumZer = (arr) => {
   // use multiple pointer mthod
@@ -936,9 +966,11 @@ const sumZer = (arr) => {
   }
 };
 sumZer([-3, -2, -1, 0, 1, 2, 3]);
+// END OF SOLUTION
 
-// QUESTION 27
-// implement a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array . there can be negative numbers in the aray , but it will always be sorted .
+// QUESTION 31
+// implement a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array .
+//  there can be negative numbers in the aray, but it will always be sorted.
 
 const countUniqueValu = (arr) => {
   let newArr = [];
