@@ -827,7 +827,6 @@ function mutati(arr) {
 console.log(mutati(["Mary", "mary"]));
 // END OF SOLUTION
 
-
 // QUESTION 27
 // Write a function that splits an array (first argument) into groups the length of size
 // (second argument) and returns them as a two - dimensional array.
@@ -841,8 +840,6 @@ function chunkArrayInGroups(arr, size) {
 }
 console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
 // END OF SOLUTION
-
-
 
 // QUESTION 28
 // write a function called same, which accepts two arrays. the function should return true if every
@@ -879,8 +876,6 @@ const same = (arr1, arr2) => {
 };
 same([1, 2, 5, 8], [2, 5, 8, 6]);
 // END OF SOLUTION
-
-
 
 // QUESTION 29
 // given two strings , write a function to determine if the second
@@ -939,12 +934,10 @@ const sameword = (str1, str2) => {
 sameword("teavh", "thkja");
 // END OF SOLUTION
 
-
-
 // QUESTION 30
-// write a function called sumZero which accepts a sorted array of integers. 
+// write a function called sumZero which accepts a sorted array of integers.
 // the function should find the
-// first pair where the sum is 0.return an aray that includes both values 
+// first pair where the sum is 0.return an aray that includes both values
 // that sum to 0 or return undefine if the pair does not exist
 
 const sumZer = (arr) => {
@@ -970,7 +963,7 @@ sumZer([-3, -2, -1, 0, 1, 2, 3]);
 
 // QUESTION 31
 // implement a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array .
-//  there can be negative numbers in the aray, but it will always be sorted.
+//  there can be negative numbers in the array, but it will always be sorted.
 
 const countUniqueValu = (arr) => {
   let newArr = [];
@@ -983,43 +976,29 @@ const countUniqueValu = (arr) => {
   return newArr.length;
 };
 countUniqueValu([1, 1, 1, 2, 2, 2, 3, 4, 5, 6, 6, 8, 7]);
+// END OF SOLUTION
 
-// METHOD 2
-function countUniqueValues(arr) {
-  if (arr.length === 0) return 0;
-  var i = 0;
-  for (var j = 1; j < arr.length; j++) {
-    if (arr[i] !== arr[j]) {
-      i++;
-      arr[i] = arr[j];
-    }
-  }
-  return i + 1;
-}
-countUniqueValues([1, 2, 2, 5, 7, 7, 99]);
 
-// QUESTION 28
+
+// QUESTION 32
 
 // write a function called maxSubarraySum which accepts an array of integers and a number called n.
 // the function should calculate the maximum sum of n consective elements in the array.
 
 function maxSubarraySum(arr, num) {
   let maxSum = 0;
-  let tempSum = 0;
   if (arr.length < num) return null;
   for (let i = 0; i < num; i++) {
     maxSum += arr[i];
   }
-  tempSum = maxSum;
-  for (let i = num; i < arr.length; i++) {
-    tempSum = tempSum - arr[i - num] + arr[i];
-    maxSum = Math.max(maxSum, tempSum);
-  }
   return maxSum;
 }
 console.log(maxSubarraySum([2, 3, 6, 4, 8, 1, 2, 3], 5));
+// END OF SOLUTION
 
-// QUESTION 29
+
+
+// QUESTION 33
 // find the longest palledrom substring from the string
 
 const palledrom = (str) => {
@@ -1040,8 +1019,12 @@ const palledrom = (str) => {
   return Math.max(...newArr);
 };
 console.log(palledrom("madam you are at redivider noon"));
+// END OF SOLUTION
 
-// QUESTION 30
+
+
+
+// QUESTION 34
 // Given an array a[] of size N which contains elements
 // from 0 to N - 1, you need to
 // find all the elements occurring more than once in the given array.
@@ -1114,8 +1097,11 @@ const repeatArrayValue = (arr) => {
   }
 };
 console.log(repeatArrayValue([3, 4]));
+// END OF SOLUTION
 
-// QUESTION 31
+
+
+// QUESTION 35
 // Given an unsorted array arr[] of size N having both negative and positive integers.
 //  The task is place all negative element at the end of array without changing
 //  the order of positive element and negative element.
@@ -1139,7 +1125,6 @@ const reArrangeArray = (arr) => {
   let finalArray = [];
   for (let i = 0; i < arr.length; i++) {
     let elem = arr[i];
-    console.log(elem);
     if (elem > 0) {
       postiveValue.push(elem);
     } else {
@@ -1150,10 +1135,13 @@ const reArrangeArray = (arr) => {
 };
 
 console.log(reArrangeArray([1, -1, 3, 2, -7, -5, 11, 6]));
+// END OF SOLUTION
 
-// QUESTION 32
 
-// given two strings , write a functionto determine if the second string is
+
+// QUESTION 36
+
+// given two strings , write a function to determine if the second string is
 //  an anagram of the first string.an anagram is a set of word that contain
 // the same set of letters
 
@@ -1207,87 +1195,12 @@ const samewords = (str1, str2) => {
   }
 };
 samewords("teavh", "thkja");
+// END OF SOLUTION
 
-// QUESTION 33
 
-// write a function called sumZero which accepts a sorted array of integers.
-// the function should find the first pair where the sum is 0.return an aray
-// that includes both values that sum to 0 or return undefine if the pair does not exist
 
-const sumZero = (arr) => {
-  // use multiple pointer mthod
-  // set limit for begin and end of arr
-  let left = 0;
-  let right = arr.length - 1;
-  let newArr = [];
 
-  while (left < right) {
-    let sum = arr[left] + arr[right];
-    if (sum === 0) {
-      return newArr.push(sum);
-    } else if (sum > 0) {
-      right--;
-    } else {
-      left++;
-    }
-  }
-};
-sumZero([-3, -2, -1, 0, 1, 2, 3]);
-
-// QUESTION 34
-// implement a function called countUniqueValues, which accepts a sorted array,
-// and counts the unique values in the array.there can be negative numbers in
-// the aray, but it will always be sorted.
-
-const countUniqueValue = (arr) => {
-  let newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    let elem = arr[i];
-    if (!arr.includes(elem)) {
-      newArr.push(elem);
-    }
-  }
-  return newArr.length;
-};
-countUniqueValue([1, 1, 1, 2, 2, 2, 3, 4, 5, 6, 6, 8, 7]);
-
-// METHOD 2
-function countUniqueValues(arr) {
-  if (arr.length === 0) return 0;
-  var i = 0;
-  for (var j = 1; j < arr.length; j++) {
-    if (arr[i] !== arr[j]) {
-      i++;
-      arr[i] = arr[j];
-    }
-  }
-  return i + 1;
-}
-countUniqueValues([1, 2, 2, 5, 7, 7, 99]);
-
-// QUESTION 35
-
-// write a function called maxSubarraySum which accepts an array of integers
-// and a number called n.the function should calculate the maximum sum of n
-//  consective elements in the array.
-
-function maxSubarraySum(arr, num) {
-  let maxSum = 0;
-  let tempSum = 0;
-  if (arr.length < num) return null;
-  for (let i = 0; i < num; i++) {
-    maxSum += arr[i];
-  }
-  tempSum = maxSum;
-  for (let i = num; i < arr.length; i++) {
-    tempSum = tempSum - arr[i - num] + arr[i];
-    maxSum = Math.max(maxSum, tempSum);
-  }
-  return maxSum;
-}
-maxSubarraySum([2, 3, 6, 4, 8, 1, 2, 3], 5);
-
-// Question 36
+// Question 37
 //  BUBBLE SORT O(n2)
 
 // arrange set of array values in ascending order using BUBBLE SORT method
@@ -1318,8 +1231,11 @@ const bubbleSort = (arr) => {
   return arr;
 };
 bubbleSort([2, 4, 1, 5, 7]);
+// END OF SOLUTION
 
-//  QUESTION 36
+
+
+//  QUESTION 38
 //  MERGESORT O(nlogn)
 // Using merge sort,
 //  Merges two already sorted arrays
@@ -1452,8 +1368,9 @@ function radixSort(nums) {
 }
 
 radixSort([23, 345, 5467, 12, 2345, 9852]);
+// END OF SOLUTION
 
-// QUESTION 37
+// QUESTION 39
 // Binary search used to search index of value in a sorted array.
 
 const binary = (arr, value) => {
@@ -1474,8 +1391,9 @@ const binary = (arr, value) => {
 
 console.log(binary([2, 3, 4, 5, 6, 7, 10], 7));
 console.log("first");
+// END OF SOLUTION
 
-// QUESTION 38
+// QUESTION 40
 // below is list of customers with the amount spent at a particular store.
 // As the software engineer ,write a function that selects the customers that has bought
 // products above 20$ for more atleast 5 times
@@ -1498,8 +1416,9 @@ const qualifiedCustomer = (customers) => {
   return message;
 };
 console.log(qualifiedCustomer(obj));
+// END OF SOLUTION
 
-// QUESTION 39
+// QUESTION 41
 
 // write a function to return the missing numbers
 const missingNum = (arr) => {
