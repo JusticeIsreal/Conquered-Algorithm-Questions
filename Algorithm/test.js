@@ -50,6 +50,7 @@ const qualified = (customers) => {
   let rewardBox = {};
   let message = "";
   for (let customer in customers) {
+    // console.log(customers[customer]);
     rewardBox[customer] = customers[customer].filter((el) => el >= 20);
     console.log(rewardBox[customer]);
 
@@ -287,20 +288,120 @@ const sumZer = (arr) => {
 };
 console.log(sumZer([-3, -2, -1, 0, 1, 2, 3]));
 
-
 function maxSubarraySum(arr, num) {
   let maxSum = 0;
   let tempSum = 0;
   if (arr.length < num) return null;
   for (let i = 0; i < num; i++) {
-      maxSum += arr[i];
-      console.log(maxSum);
+    maxSum += arr[i];
+    console.log(maxSum);
   }
-//   tempSum = maxSum;
-//   for (let i = num; i < arr.length; i++) {
-//     tempSum = tempSum - arr[i - num] + arr[i];
-//     maxSum = Math.max(maxSum, tempSum);
-//   }
+  //   tempSum = maxSum;
+  //   for (let i = num; i < arr.length; i++) {
+  //     tempSum = tempSum - arr[i - num] + arr[i];
+  //     maxSum = Math.max(maxSum, tempSum);
+  //   }
   return maxSum;
 }
 console.log(maxSubarraySum([2, 3, 6, 5, 7, 1, 2, 3], 5));
+
+// winninCard qustion
+const winningCard = ([...arr]) => {
+  // declear  arr to concat arguments
+  let newArray = [...arr.join(" ,")];
+  console.log(newArray);
+  let newArr = newArray
+    .join("")
+    .replace(/[\W_]+/g, "")
+    .split("");
+  console.log(newArr);
+  // declear empty array store final answer
+  let finalArr = [];
+  //   // declear empty object to collect frequency counter of values
+  let freqCounter = {};
+
+  // loop through all values in new array
+  for (let i = 0; i < newArr.length; i++) {
+    let card = newArr[i];
+    console.log(card);
+    // carry out codition to store frequency of occurance of values
+    if (freqCounter[card]) {
+      freqCounter[card] = freqCounter[card] + 1;
+    } else {
+      freqCounter[card] = 1;
+    }
+  }
+  console.log(freqCounter);
+
+  // loop through new object to get inidividual values
+  for (let num in freqCounter) {
+    console.log(num)
+    //  set condition to pick values  to match task
+    if (freqCounter[num] !== 1) {
+      console.log(num);
+      finalArr.push(num);
+
+      console.log(finalArr);
+      return Math.max(...finalArr);
+    }
+  }
+  // return max value
+  return -1;
+};
+console.log(
+  winningCard([
+    [5, 7, 7, 2],
+    [8, 2, 5, 5],
+  ])
+);
+
+// mixvalue question
+
+const mixValue = (arr1) => {
+  let newArray = [];
+  console.log(arr1);
+  for (let i = 0; i < arr1.length; i++) {
+    let elem = arr1[i];
+    console.log(elem);
+    if (typeof elem === "number") {
+      newArray.push(elem);
+      console.log(newArray);
+      // console.log(newArray);
+    }
+    console.log(elem);
+
+    console.log(newArray);
+  }
+};
+console.log(mixValue([5, 5, 2, "C", "D", "+"]));
+
+
+function cardGame(arr) {
+  const lenOfArr = arr.length;
+  console.log(lenOfArr);
+  const uniqueArr = [];
+
+  for (let i = 0; i < lenOfArr; i++) {
+    const element = arr[i];
+    const len = element.length;
+    for (let j = 0; j < len; j++) {
+      if (element.lastIndexOf(element[j]) === element.indexOf(element[j])) {
+        uniqueArr.push(element[j]);
+      }
+    }
+  }
+  return uniqueArr.length > 0 ? Math.max(...uniqueArr) : -1;
+}
+console.log(
+  cardGame([
+    [5, 7, 3, 9, 4, 9, 8, 3, 2],
+    [1, 2, 2, 4, 4, 1],
+    [1, 2, 3],
+  ])
+);
+// console.log(
+//   cardGame([
+//     [5, 5],
+//     [2, 2],
+//   ])
+// );

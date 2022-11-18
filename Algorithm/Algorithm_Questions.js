@@ -22,8 +22,9 @@ const answer = (arr1) => {
 console.log(answer([1, 5, -6, 20, -5, 10, -8]));
 // END OF SOLUTION
 
+
 // QUESTION 2
-// write a program to return an array second smallers value and second largest value..   arr2=[2,5,7,8,9] answer =[5,8]
+// write a program to return an array second smallest value and second largest value..   arr2=[2,5,7,8,9] answer =[5,8]
 
 const answer2 = (arr2) => {
   // create an empty new array to store new values
@@ -50,6 +51,7 @@ const answer2 = (arr2) => {
 };
 console.log(answer2([2, 5, 7, 8, 9]));
 // END OF SOLUTION
+
 
 // QUESSION 3
 //  write a program that remove negative or non integer from and array
@@ -97,6 +99,8 @@ function onlyLowest(arr) {
   return { lower: result, uppercase: upper };
 }
 console.log(onlyLowest(message));
+// END OF SOLUTION
+
 
 // QUESSION 5
 // write a javaScript function to remove the punctuations from the alphabets
@@ -230,7 +234,7 @@ const sepVC = (word) => {
   let allVowel = "a, e, i, o, u, A, E, I, O, U";
   let number = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9";
   let allVowels = allVowel.split("");
-  console.log(allVowels);
+  // console.log(allVowels);
   let numbers = number.split("");
   // set a variable to store new values
   let vowels = "";
@@ -341,6 +345,7 @@ const withdraw = (amount, oldArray = []) => {
 console.log(withdraw(10409));
 // END OF SOLUTION
 
+
 // QUESTION 9
 // write a program that returns  the longest word from the given string
 const longestWord = (sentences) => {
@@ -358,6 +363,7 @@ const longestWord = (sentences) => {
 console.log(longestWord("hello guys this is justice isreal code"));
 console.log(longestWord("hello this is another testing for verification"));
 // END OF SOLUTION
+
 
 // QUESTION 10
 // We have an oject of customers for our food delivery
@@ -471,6 +477,8 @@ function dup(str = "") {
 switchChar("we", "wkeap", "mgren");
 // END OF SOLUTION
 
+
+
 // QUESTION 12 .
 
 // We've defined a function countOnline which accepts
@@ -517,6 +525,7 @@ function countOnline(usersObj) {
 console.log(countOnline(users));
 // END OF SOLUTION
 
+
 // QUESTION 13
 // Finish writing the getArrayOfUsers function so that it returns an array
 //  containing all the properties in the object it receives as an argument.
@@ -544,6 +553,7 @@ function getArrayOfUsers(obj) {
 }
 console.log(getArrayOfUsers(users));
 // END OF SOLUTION
+
 
 // QUESTION 14
 // Take a look at the object we've provided in the code editor.
@@ -593,6 +603,7 @@ function convertToF(celsius) {
 }
 console.log(convertToF(30));
 // END OF SOLUTION
+
 
 // QUESTION 16
 // Return an array consisting of the largest number from each provided sub-array.
