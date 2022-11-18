@@ -335,7 +335,7 @@ const winningCard = ([...arr]) => {
 
   // loop through new object to get inidividual values
   for (let num in freqCounter) {
-    console.log(num)
+    console.log(num);
     //  set condition to pick values  to match task
     if (freqCounter[num] !== 1) {
       console.log(num);
@@ -375,7 +375,6 @@ const mixValue = (arr1) => {
 };
 console.log(mixValue([5, 5, 2, "C", "D", "+"]));
 
-
 function cardGame(arr) {
   const lenOfArr = arr.length;
   console.log(lenOfArr);
@@ -405,3 +404,66 @@ console.log(
 //     [2, 2],
 //   ])
 // );
+
+function largestOfFour(arr) {
+  const results = [];
+  for (let i = 0; i < arr.length; i++) {
+    let largestNumber = arr[i][0];
+    console.log(largestNumber);
+
+    for (let j = 1; j < arr[i].length; j++) {
+      
+      if (arr[i][j] > largestNumber) {
+        largestNumber = arr[i][j];
+        
+      }
+    }
+    results[i] = largestNumber;
+  }
+  return results;
+}
+console.log(
+  largestOfFour([
+    [4, 5, 1, 3],
+    [13, 27, 18, 26],
+    [32, 35, 37, 39],
+    [1000, 1001, 857, 1],
+  ])
+);
+
+
+function frankenSplice(arr1, arr2, n) {
+  arr2.splice(n, 0, ...arr1);
+  console.log(arr2);
+  return arr2;
+}
+console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
+//  OR
+function frankenSplic(arr1, arr2, n) {
+  let localArray = arr2.slice();
+  for (let i = 0; i < arr1.length; i++) {
+    localArray.splice(n, 0, arr1[i]);
+    n++;
+  }
+  return localArray;
+}
+console.log(frankenSplic([1, 2], ["a", "b"], 1));
+
+function getIndexToIns(arr, num) {
+  arr.push(num);
+  arr.sort((x, y) => x - y);
+  let hh = arr.indexOf(num);
+  return hh;
+}
+console.log(getIndexToIns([40, 80, 60], 50));
+console.log(getIndexToIns([2, 20, 10], 19));
+
+
+function chunkArrayInGroups(arr, size) {
+  let newArr = [];
+  while (arr.length > 0) {
+    newArr.push(arr.splice(0, size));
+  }
+  return newArr;
+}
+console.log(chunkArrayInGroups(["a", "b", "c"], 2));
