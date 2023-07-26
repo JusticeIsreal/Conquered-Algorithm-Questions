@@ -228,6 +228,7 @@ console.log(decodeMorseValue("...---..."));
 console.log(decodeMorseValue("--"));
 // END OF SOLUTION
 
+
 // QUESTION 7
 // write a program that seperates the vowels from consonant and numbers in a given sting
 const sepVC = (word) => {
