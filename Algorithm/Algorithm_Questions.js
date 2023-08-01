@@ -235,7 +235,6 @@ const sepVC = (word) => {
   let allVowel = "a, e, i, o, u, A, E, I, O, U";
   let number = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9";
   let allVowels = allVowel.split("");
-  // console.log(allVowels);
   let numbers = number.split("");
   // set a variable to store new values
   let vowels = "";
@@ -319,7 +318,7 @@ console.log(atmMachine([10409]));
 atmMachine();
 
 // altlernative solution
-
+// EZE SOLUTION
 const withdraw = (amount, oldArray = []) => {
   box = [...oldArray];
   let num;
@@ -343,7 +342,7 @@ const withdraw = (amount, oldArray = []) => {
   }
   return box;
 };
-console.log(withdraw(10409));
+console.log(withdraw(10409,[658]));
 // END OF SOLUTION
 
 

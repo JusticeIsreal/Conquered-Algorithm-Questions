@@ -273,9 +273,183 @@ const sepVC = (word) => {
   return { vowelCollection, numCollection, consonantCollection };
 };
 
-console.log(
-  sepVC(
-    "jlol689ukj"
-  )
-);
+console.log(sepVC("jlol689ukj"));
+// END OF SOLUTION
+
+// Questionn 8
+//  An atm has 100, 20, 9, and 1 Naira bills (NGN) available to be dispensed.
+//     Given an amount between 0 and 10,000 Naira (inclusive) and asaiming that the
+// ATM wants to use as few bills as possible,
+//     determine  the minimal number of 100, 20, 9, and 1 dollar bills the ATM needs
+// to dispense(in that order).
+//     Here's the specification for the withdraw method you'll complete.
+
+//  Withdraw  (amount)
+
+// Parameters
+// Amount: Number - amount of money to withdraw. Assume that the amount is always
+// divisible into 100, 20, 9, and 1 bills.
+// Return value
+// Array  <Number> An array of 4 integers representing the number of 100, 20, 9, and 1 Naira
+// bills needed to complete the withdraw(in that order).Constraints: 0《amount《10,000.
+// Examples
+// Amount         return value
+// 1049              [10,2,1,0]
+// 130                [1,1,1,1]
+
+// ANSWER
+// Idrew a function
+const atmMachine = (amountRequested) => {
+  //amountRequested / 100
+  let hunderdRemainder = amountRequested % 100;
+  let hundreds = (amountRequested - hunderdRemainder) / 100;
+  let twentys = 0;
+  let nines = 0;
+  let ones = 0;
+
+  if (hunderdRemainder) {
+    let twentyRemainder = hunderdRemainder % 20;
+    twentys = Math.floor(hunderdRemainder / 20);
+
+    if (twentyRemainder) {
+      let ninesRemainder = twentyRemainder % 9;
+      nines = Math.floor(twentyRemainder / 9);
+      if (ninesRemainder) {
+        ones = ninesRemainder;
+      }
+    }
+    console.log(nines);
+  }
+
+  return [hundreds, twentys, nines, ones];
+
+  //there's a remainder / 20
+  // dive  by 9
+  // divide by 1
+};
+
+console.log(atmMachine(10409));
+
+// QUESTION 10
+// We have an oject of customers for our food delivery
+// app with th information about their past order with order value.
+// write a javascript program to give a "PREMIUM MEMBERSHIP" to the
+// customer is the customer has made at least 5 order of the minimum value of 20.
+// the customers and their past order history is given below
+
+const cusObj = {
+  Ben10: [22, 30, 11, 17, 15, 52, 27, 12, 50],
+  Sameer: [5, 17, 30, 33, 40, 22, 26, 10, 11, 45],
+  Tony: [5, 27, 30, 33, 40, 22, 26, 10, 21, 45],
+  Linda: [15, 17, 30, 3, 40, 22, 6, 10, 11, 45],
+  Zeesham: [22, 30, 11, 5, 17, 30, 6, 57],
+};
+
+const qualified = (customers) => {
+  let premiumCustomers = [];
+  //loopthrought the keys int the obj
+  const objKeys = Object.keys(customers);
+
+  objKeys.forEach((element) => {
+    // loop through
+    let premiumCount = 0;
+    let details = customers[element];
+
+    //loop through details
+    details.forEach((key) => {
+      if (key >= 20) premiumCount += 1;
+    });
+
+    if (premiumCount >= 5) {
+      premiumCustomers.push(element);
+    }
+  });
+
+  return `your premium customers are : ${premiumCustomers}`;
+};
+console.log(qualified(cusObj));
+// END OF SOLUTION
+
+//  QUESTION 11
+
+//  *switchChar* is a function that helps children in swapping values to return a new word
+// a word is a set of alphabets that obviously must not be a dictionary word
+
+// the children are offered three inputs:
+
+// inputChar: cade
+// actualChar: abcdefgh  (is a set of non-repeating alpha-characters)
+// changeChar: grdwqsdr
+
+// switchChar(inputChar, actualChar, changeChar) => dgwq
+
+// the result for this is => "dgwq"
+
+// you are to write a function that takes these values as arguments and return the result only if:
+
+// 1) actualChar and changeChar are of the same length,
+// 2) characters in actualChar are not repeated,
+// 3) the length of inputChar is not longer than the length of actualChar
+// 4) the characters in inputChar are contained in actualChar
+
+// if none of this conditions are met, here are the returned values
+
+// 1) actualChar and changeChar are not the same length returns => "Length mismatch"
+// 2) characters in actualChar are repeated returns => 'Repeated value'
+// 3) the length of inputChar is longer than the length of actualChar returns => -1
+// 4) the characters in inputChar are not contained in actualChar -1
+
+// *NOTE:*
+// actualChar is a set of none repeating characters of length (0 to N)
+// inputChar is a set of characters of length (0 to N-1)
+// changeChar is a set of characters of length (length of actualChar)
+// unmet conditions must return values
+
+// examples:
+// *switchChar('decagon', 'lmnbvcxzasdfghjktyrueiwoqp', 'zdewsaqxcfrtgvbhyujnmkilop') => "rmacgle*
+// *switchChar('we', 'wkeap', 'mgren')​​​ => "mr"*
+
+// a function to check character duplicates
+function isDuplicate(word) {
+  let wordArray = word.split("");
+  for (let i = 0; i < wordArray.length; i++) {
+    if (wordArray.filter((item) => item === wordArray[i]).length > 1) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+// is charcters in word
+function isInWord(inputChar, actualChar) {
+  if (!inputChar) return false;
+  for (let i = 0; i < inputChar.length; i++) {
+    if (!actualChar.includes(inputChar[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function switchChar(inputChar = "", actualChar = "", changeChar = "") {
+  let result;
+  if (actualChar.length === changeChar.length) {
+    return result;
+  }
+
+  if (!isDuplicate(actualChar)) {
+    return result;
+  }
+
+  if (inputChar.length < actualChar) {
+    return result;
+  }
+
+  if (isInWord(inputChar, actualChar)) {
+    return result;
+  }
+}
+
+switchChar("we", "wkeap", "mgren");
 // END OF SOLUTION
