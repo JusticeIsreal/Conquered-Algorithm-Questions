@@ -453,3 +453,33 @@ function switchChar(inputChar = "", actualChar = "", changeChar = "") {
 
 switchChar("we", "wkeap", "mgren");
 // END OF SOLUTION
+
+var users = {
+  Alan: {
+    online: false,
+  },
+  Jeff: {
+    online: true,
+  },
+  Sarah: {
+    online: true,
+  },
+  rah: {
+    online: true,
+  },
+};
+
+const onlineUsers = (usersObj) => {
+  let usersCount = 0;
+
+  for (let onlineStatus in usersObj) {
+    console.log(usersObj[onlineStatus]);
+    if (usersObj[onlineStatus].online === true) {
+      usersCount++;
+    }
+  }
+
+  return usersCount;
+};
+
+console.log(onlineUsers(users));
