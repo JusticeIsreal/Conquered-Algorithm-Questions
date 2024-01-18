@@ -1030,6 +1030,24 @@ const palledrom = (str) => {
   return Math.max(...newArr);
 };
 console.log(palledrom("madam you are at redivider noon"));
+const palledrom = (str) => {
+  // creat an empty array to collect values
+  let newArr = [];
+
+  let arrWords = str.split(" ");
+
+  for (let i = 0; i < arrWords.length; i++) {
+    let element = arrWords[i];
+
+    let finalCheck = element.split("").reverse().join("");
+
+    if (finalCheck === arrWords[i]) {
+      newArr.push(element.length);
+    }
+  }
+  return Math.max(...newArr);
+};
+console.log(palledrom("madam you are at redivider noon"));
 // END OF SOLUTION
 
 
