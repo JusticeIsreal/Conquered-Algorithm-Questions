@@ -1007,7 +1007,7 @@ function maxSubarraySum(arr, num) {
 console.log(maxSubarraySum([2, 3, 6, 4, 8, 1, 2, 3], 5));
 // END OF SOLUTION
 
-
+// kjh
 
 // QUESTION 33
 // find the longest palledrom substring from the string
